@@ -1,7 +1,7 @@
 # Vaccination-Distribution-Effects-on-Infection-Rates-in-Maryland
 
-Project 2 Proposal and Summary
-Project 2 Name: Vaccination Distribution Effects on Infection Rates in Maryland
+Project 2 Proposal and Summary <br>
+Project 2 Name: Vaccination Distribution Effects on Infection Rates in Maryland<br>
 Project 2 Team: Juan Castaneda, Robin Evans, Clayton Grace
 
 Purpose/Scope:
