@@ -33,8 +33,8 @@ def index():
 @app.route("/update_data")
 def get_datasets():
     """gets the most updated data from https://ourworldindata.org/us-states-vaccinations"""
-    file_name = f"us_state_vaccinations.csv"
-    url = "https://github.com/owid/covid-19-data/blob/master/public/data/vaccinations/us_state_vaccinations.csv"
+    file_name = f"maryland_vaccinations.csv"
+    url = "https://opendata.arcgis.com/datasets/89c9c1236ca848188d93beb5928f4162_0.csv"
     urllib.request.urlretrieve(url, f"./Resources/{file_name}")
     print(file_name,"Downloaded")
     return ("<h2>Data has been updated</h2>")
