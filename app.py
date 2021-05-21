@@ -10,7 +10,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 
 #################################################
@@ -26,9 +26,7 @@ app.config["JSON_SORT_KEYS"] = False # Preventing Jsonify to reorder the diction
 @app.route("/")
 def index():
     """Index - Landing Page"""
-    return (
-        f"<h1>Index Page</h1>"
-    )
+    return render_template("index.html")
 
 @app.route("/update_data")
 def get_datasets():
