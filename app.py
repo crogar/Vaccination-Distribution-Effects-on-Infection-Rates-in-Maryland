@@ -36,7 +36,9 @@ def get_datasets():
     file_name = f"maryland_vaccinations.csv"
     url = "https://opendata.arcgis.com/datasets/89c9c1236ca848188d93beb5928f4162_0.csv"
     urllib.request.urlretrieve(url, f"./Resources/{file_name}")
-    print(file_name,"Downloaded")
+    file_name = "maryland_covid19-cases.csv"
+    url = "https://state-of-maryland.github.io/OpenDataSource/MDCOVID19_MASTER_ZIP_CODE_CASES.csv"
+    urllib.request.urlretrieve(url, f"./Resources/{file_name}")
     return ("<h2>Data has been updated</h2>")
 
 if __name__ == "__main__":
