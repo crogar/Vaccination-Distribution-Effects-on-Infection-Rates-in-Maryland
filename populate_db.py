@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 from config import password
 
 def populate_sql():
-    csv_path = "./maryland_covid19-cases.csv"
+    csv_path = "./Resources/maryland_covid19-cases.csv"
 
     df = pd.read_csv(csv_path)
     df = df.replace(np.nan,0)
@@ -56,7 +56,7 @@ def populate_sql():
     #                                                                           #
     # vaccinations Data                                                        #
     ###########################################################################
-    csv_path = "./maryland_vaccinations.csv"
+    csv_path = "./Resources/maryland_vaccinations.csv"
     df = pd.read_csv(csv_path)
 
     # #### Dropping rows with missing county data
