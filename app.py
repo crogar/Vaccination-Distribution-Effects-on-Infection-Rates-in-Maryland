@@ -3,7 +3,7 @@ import subprocess
 import sys
 import pendulum
 import urllib.request
-
+import populate_db
 from collections import OrderedDict
 
 from sqlalchemy.ext.automap import automap_base
@@ -37,6 +37,7 @@ def get_datasets():
     file_name = "maryland_covid19-cases.csv"
     url = "https://opendata.arcgis.com/datasets/0573e90adab5434f97b082590c503bc1_0.csv"
     urllib.request.urlretrieve(url, f"./Resources/{file_name}")
+    populate_db.populate_sql()
     return ("<h2>Data has been updated</h2>")
 
 if __name__ == "__main__":
