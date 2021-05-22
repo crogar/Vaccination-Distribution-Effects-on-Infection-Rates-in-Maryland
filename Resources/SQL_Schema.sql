@@ -7,7 +7,7 @@ CREATE TABLE "cases" (
     "ID" INT   NOT NULL,
     "DATE" date   NOT NULL,
     "County" varchar   NOT NULL,
-    "Confiramted_cases" INT   NOT NULL,
+    "Confirmed_cases" INT   NOT NULL,
     CONSTRAINT "pk_cases" PRIMARY KEY (
         "ID"
      )
@@ -18,15 +18,15 @@ CREATE TABLE "vaccinations" (
     "DATE" date   NOT NULL,
     "County" varchar   NOT NULL,
     "FirstDoseDaily" INT   NOT NULL,
-    "FirstDoseCummulative" INT   NOT NULL,
+    "FirstDoseCumulative" INT   NOT NULL,
     "SecondDoseDaily" INT   NOT NULL,
-    "SecondDoseCummulative" INT   NOT NULL,
+    "SecondDoseCumulative" INT   NOT NULL,
     "SingleDoseDaily" INT   NOT NULL,
-    "SingleDoseCummulative" INT   NOT NULL,
+    "SingleDoseCumulative" INT   NOT NULL,
     "AtLeastOneDose" INT   NOT NULL,
     "FullyVaccinated" INT   NOT NULL,
-    "FullVaccinatedCummulative" INT   NOT NULL,
-    "AtLeastOneDoseCummulative" INT   NOT NULL,
+    "FullVaccinatedCumulative" INT   NOT NULL,
+    "AtLeastOneDoseCumulative" INT   NOT NULL,
     CONSTRAINT "pk_vaccinations" PRIMARY KEY (
         "ID"
      )
