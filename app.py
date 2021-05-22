@@ -35,7 +35,7 @@ def get_datasets():
     url = "https://opendata.arcgis.com/datasets/89c9c1236ca848188d93beb5928f4162_0.csv"
     urllib.request.urlretrieve(url, f"./Resources/{file_name}")
     file_name = "maryland_covid19-cases.csv"
-    url = "https://state-of-maryland.github.io/OpenDataSource/MDCOVID19_MASTER_ZIP_CODE_CASES.csv"
+    url = "https://opendata.arcgis.com/datasets/0573e90adab5434f97b082590c503bc1_0.csv"
     urllib.request.urlretrieve(url, f"./Resources/{file_name}")
     return ("<h2>Data has been updated</h2>")
 
