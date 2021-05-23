@@ -8,12 +8,16 @@
     --transition-speed: 600ms;
 }
 
-body,html{
+html,body{
     color: black;
-    background-color: white;
+    /* background-color: white; */
     margin: 0;
     padding: 0;
     height: 100%;
+}
+#map {
+    height: 400px;
+    width: 600px;
 }
 
 body::-webkit-scrollbar{
@@ -36,6 +40,7 @@ main{
     position: fixed;
     background-color: var(--bg-primary);
     transition: width 500ms ease;
+    z-index: 9999;
 }
 
 .navbar-nav{
@@ -152,3 +157,4 @@ main{
         transition: opacity var(--transition-speed);
     }
 }
+
