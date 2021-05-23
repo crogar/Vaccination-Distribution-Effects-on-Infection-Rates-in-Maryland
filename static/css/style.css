@@ -84,7 +84,8 @@ main{
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 1rem;
-    text-align: center;
+    /* text-align: center; */
+    align-items: center;
     color: var(--text-secondary);
     background: var(--bg-secondary);
     font-size: 1rem;
@@ -93,7 +94,7 @@ main{
   }
   
   .logo svg {
-    width: 50%;
+    width: 90%;
     transform: rotate(0deg);
     transition: var(--transition-speed);
   }
@@ -101,7 +102,6 @@ main{
   .logo-text
   {
     display: none;
-    /* position: absolute; */
     transition: var(--transition-speed);
   }
   
