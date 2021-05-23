@@ -16,9 +16,6 @@ def populate_sql():
     df = df.assign(DATE=columnsplit[0])
     # ### Renaming OBJECTID column
     df.rename(columns={"OBJECTID":"ID"},inplace=True)
-    df
-
-
     # #### Creating new Data Frame
     new_df = pd.DataFrame(columns=['ID','DATE','County','Confirmed_cases'])
     counties = df.columns[2:26]
@@ -35,22 +32,21 @@ def populate_sql():
 
     # #### Adding Case ID
     new_df['ID'] = np.arange(1,new_df.shape[0]+1)
-    new_df
-
     # ### putting df into vaccinations table in pgadmin server
     # #### Connecting to DB
-    connection_string = f"postgres:{password}@localhost:5433/covid19_MD_Data"
-    engine = create_engine(f'postgresql://{connection_string}')
-
+    connection_string = f"udxenurz:{password}@batyr.db.elephantsql.com/udxenurz"
+    engine = create_engine(f'postgres://{connection_string}')
+    print(engine.table_names())
 
     # dropping values that are in any of our tables and resetting the index.
     with engine.connect() as con:
         statement = [text("""Truncate table cases CASCADE""")]
         for query in statement:
             con.execute(query)
+        print('table truncated')
     # Populating SQL database
     new_df.to_sql(name='cases', con=engine, if_exists='append', index=False)
-
+    print('uploading df to sql database')
 
     ##############################################################################
     #                                                                           #
