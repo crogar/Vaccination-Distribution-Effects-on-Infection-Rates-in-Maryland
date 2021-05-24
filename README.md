@@ -17,3 +17,4 @@ Data Sources, Visualizations, and Tools:
 
 The data sources for this project will use COVID data sets from The Maryland Department of Health (https://coronavirus.maryland.gov/search). The visualizations for this project will include, at a minimum, 1.) graphic depictions of vaccination rates and infection rates, 2.) an interactive map of counties with detailed pop-ups, and 3.) a heat map of the state depicting vaccination and infection densities. The data will be stored in a SQL database and visualizations will be created using the React library for JavaScript. 
 
+MD DoH Data Hub: https://coronavirus.maryland.gov/search
