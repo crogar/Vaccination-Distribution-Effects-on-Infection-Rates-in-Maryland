@@ -56,7 +56,7 @@ def populate_sql():
     df = pd.read_csv(csv_path)
 
     # #### Dropping rows with missing county data
-    df = df.iloc[71:]
+    df = df.dropna(subset=['County'])
     df = df.reset_index(drop=True)
     # #### resetting object ID values
 
@@ -80,3 +80,8 @@ def populate_sql():
         for query in statement:
             con.execute(query)
     df.to_sql(name='vaccinations', con=engine, if_exists='append', index=False)
+
+     ##############################################################################
+    #                                                                           #
+    # Gender Data                                                              #
+    ###########################################################################

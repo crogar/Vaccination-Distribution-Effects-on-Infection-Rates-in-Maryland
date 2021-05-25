@@ -37,6 +37,9 @@ def get_datasets():
     file_name = "maryland_covid19-cases.csv"
     url = "https://opendata.arcgis.com/datasets/0573e90adab5434f97b082590c503bc1_0.csv"
     urllib.request.urlretrieve(url, f"./Resources/{file_name}")
+    file_name = "maryland_covid19-gender_vaccination.csv"
+    url = "https://opendata.arcgis.com/datasets/b84df3e7c3b3470e8f961b0989e20be4_0.csv"
+    urllib.request.urlretrieve(url, f"./Resources/{file_name}")
     populate_db.populate_sql()
     return ("<h2>Data has been updated</h2>")
 
