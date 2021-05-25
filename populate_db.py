@@ -58,8 +58,9 @@ def populate_sql():
     # #### Dropping rows with missing county data
     df = df.dropna(subset=['County'])
     df = df.reset_index(drop=True)
+    # Deleting extra spaces after county names
+    df['County'] = df['County'].str.rstrip()
     # #### resetting object ID values
-
     df["OBJECTID"] = np.arange(1,df.shape[0]+1)
 
     columnsplit = df['VACCINATION_DATE'].str.split(' ',n=1, expand=True)
