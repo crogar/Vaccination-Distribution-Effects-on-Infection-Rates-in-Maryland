@@ -13,3 +13,5 @@ counties = [{'county':"Allegany","coordinates":[39.6255251,-78.6114999]},{'count
 
 def get_cases():
     df =pd.read_sql_query('select * from cases', con=engine)
+    # Converting Date column from String to Dates
+    df['DATE'] = pd.to_datetime(df['DATE'])
