@@ -2,8 +2,8 @@ import pandas as pd
 pd.options.mode.chained_assignment = None  # default='warn'
 import numpy as np
 from sqlalchemy import create_engine
-from sqlalchemy.sql import text
 from config import password
+import json
 
 connection_string = f"udxenurz:{password}@batyr.db.elephantsql.com/udxenurz"
 engine = create_engine(f'postgres://{connection_string}')
@@ -22,3 +22,4 @@ def get_cases(date):
     for county in counties:
         temp = last_date[last_date['County'] == county['county']]['Confirmed_cases'].item()
         county['fully_vaccinated'] = temp
+    return json.dumps(counties)
