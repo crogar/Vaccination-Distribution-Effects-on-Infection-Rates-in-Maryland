@@ -39,3 +39,4 @@ def get_cases(date):
         # setting confirmed cases and dates
         geo_data['features'][county]['properties']['date'] = counties[county]['date']
         geo_data['features'][county]['properties']['confirmed_cases'] = counties[county]['Confirmed_cases']
+    return json.dumps(geo_data)

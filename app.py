@@ -13,6 +13,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect
 
 from flask import Flask, jsonify, render_template
+from flask_cors import CORS
 
 
 #################################################
@@ -20,6 +21,7 @@ from flask import Flask, jsonify, render_template
 #################################################
 app = Flask(__name__)
 app.config["JSON_SORT_KEYS"] = False # Preventing Jsonify to reorder the dictionario elements by the keys
+CORS(app)
 #################################################
 # Flask Routes
 #################################################

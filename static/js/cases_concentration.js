@@ -39,12 +39,16 @@ var myMap = L.map("map-cases", {
   
 
 // Load in geojson data
-var geoData = "../static/js/maryland_geojson.geojson";
+// var geoData = "../static/js/maryland_geojson.geojson";
+var geoData = "http://127.0.0.1:5000/gen_cases/2021-05-24";
+
 
 var geojson;
 
 // Grab data with d3
-d3.json(geoData).then(function(data) {
+fetch(geoData)
+	.then((r) => r.json())
+	.then((data) => {
   console.log(data)
   // Create a new choropleth layer
   geojson = L.choropleth(data, {
