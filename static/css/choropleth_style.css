@@ -1,0 +1,45 @@
+/* CSS from the Leaflet-Choropleth documentation */
+#map-cases{
+    height: 300px;
+    width: 500px;
+}
+.legend {
+    margin:0;
+    bottom: 0;
+    padding: 6px 8px;
+    font: 12px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #555;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .legend ul {
+    padding: 0;
+    margin: 0;
+    clear: both;
+    list-style-type: none;
+  }
+  
+  .legend li {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.7rem;
+  }
+  
+  .legend .min {
+    float: left;
+    padding-bottom: 0px;
+  }
+  
+  .legend .max {
+    float: right;
+  }
+  
+  .legend h1 {
+    text-align: center;
+    font-size: 0.7rem;
+  }
+  
