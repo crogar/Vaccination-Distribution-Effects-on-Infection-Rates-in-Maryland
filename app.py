@@ -1,3 +1,4 @@
+import json
 import pandas as pd
 import subprocess
 import sys
@@ -5,6 +6,7 @@ import pendulum
 import urllib.request
 import populate_db
 from collections import OrderedDict
+import gen_json
 
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -42,6 +44,12 @@ def get_datasets():
     urllib.request.urlretrieve(url, f"./Resources/{file_name}")
     populate_db.populate_sql()
     return ("<h2>Data has been updated</h2>")
+
+@app.route("/gen_cases/<date>")
+def gen_geojson(date):
+    """Index - Landing Page"""
+    parsed = json.loads(gen_json.get_cases(date))
+    return jsonify(parsed)
 
 if __name__ == "__main__":
     app.run(debug=True  )
