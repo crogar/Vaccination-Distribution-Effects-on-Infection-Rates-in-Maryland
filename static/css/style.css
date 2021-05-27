@@ -164,11 +164,10 @@ main{
     margin-right: 2%;
     margin-top: 2%;
     padding: 10px;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.12), 
-                        0 12px 12px rgba(0,0,0,0.12), 
-                        0 12px 12px rgba(0,0,0,0.12), 
-                        0 12px 12px rgba(0,0,0,0.12),
-                        0 16px 16px rgba(0,0,0,0.12);
+    border-radius: 5px;
+    box-shadow: -3px 2px 8px 4px rgba(56,40,40,0.59);
+    -webkit-box-shadow: -3px 2px 8px 4px rgba(56,40,40,0.59);
+    -moz-box-shadow: -3px 2px 8px 4px rgba(56,40,40,0.59);
 }
 .container h1{
     text-align: center;

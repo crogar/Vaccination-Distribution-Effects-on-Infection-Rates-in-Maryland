@@ -1,3 +1,12 @@
+window.addEventListener('load', (event) => {
+  var width = 0.30 * window.innerWidth,
+  height = 0.35 * window.innerHeight;
+
+  var searchcolumn = d3.select("#map-cases")
+                    .style("width", width + 'px')
+                    .style("height", height + 'px');
+});
+
 // Define variables for our tile layers
 var light = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
   // attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
@@ -79,7 +88,7 @@ fetch(geoData)
   }).addTo(myMap);
 
   // Set up the legend
-  var legend = L.control({ position: "bottomright" });
+  var legend = L.control({ position: "bottomleft" });
   legend.onAdd = function() {
     var div = L.DomUtil.create("div", "info legend");
     var limits = geojson.options.limits;
@@ -87,7 +96,7 @@ fetch(geoData)
     var labels = [];
 
     // Add min & max
-    var legendInfo = "<h1>Confirmed Cases</h1>" +
+    var legendInfo = "<h1>Confirmed Cases</h1><hr><h1> DATE</h1>" +
       "<div class=\"labels\">" +
         "<div class=\"min\">" + limits[0] + "</div>" +
         "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
