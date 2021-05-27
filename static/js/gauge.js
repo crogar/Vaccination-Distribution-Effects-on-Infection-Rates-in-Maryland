@@ -1,4 +1,4 @@
-d3.json("./data/samples.json").then((data) => {
+// Creates county population list 
 let county_pop = [
     {County: "Allegany", population: 75300},
     {County: "Anne Arundel", population: 556100},
@@ -24,8 +24,15 @@ let county_pop = [
     {County: "Washington", population: 170950},
     {County: "Wicomico", population: 107450},
     {County: "Worcester", population: 56250},
+];
 
-]
+
+
+
+
+d3.csv("maryland_vaccinations.csv").then((vacc) => {
+    
+});
 
 // Populates the dropdown with subject ID
 function dropDown(County) {
@@ -36,36 +43,28 @@ function dropDown(County) {
         })
     };
 
-d3.csv("maryland_vaccinations.csv").then((vacc) => {
-
-});
-
 // Creates a gauge plot with stepping color codes for washed per week
 function gaugePlot(subject) {
-    let percent = subject.FullyVaccinated / 
-    let trace3 = {
-        domain: {x: [0,1], y: [0,1]},
-        value: subject.wfreq,
-        title: {text: "Scrubs per Week"},
+    let percent = subject.sum(FullyVaccinated) / county_pop[d3.select("#selDataset").property("value")].population
+    let trace_gauge = {
+        // domain: {x: [0,1], y: [0,1]},
+        value: percent
+        title: {text: "Percent Vaccinated"},
         type: "indicator",
-        mode: "gauge",
-        gauge: {axis: {range: [null, 9], tickwidth: 1},
+        mode: "gauge+number",
+        gauge: {axis: {range: [null, 100], tickwidth: 1},
+                bar: {color: "grey"}
                 steps: [
-                    {range: [0, 1], color: "#ffffff"},
-                    {range: [1, 2], color: "#ccffff"},
-                    {range: [2, 3], color: "#99ffff"},
-                    {range: [3, 4], color: "#66ffff"},
-                    {range: [4, 5], color: "#33ffff"},
-                    {range: [5, 6], color: "#00ffff"},
-                    {range: [6, 7], color: "#00cccc"},
-                    {range: [7, 8], color: "#009999"},
-                    {range: [8, 9], color: "#006666"}
+                    {range: [0, .25], color: "red"},
+                    {range: [.25, .50], color: "orange"},
+                    {range: [.50, .75], color: "yellow"},
+                    {range: [.75, 1], color: "green"}
                     ]
                 }
     };
 
-    var data = [trace3];
+    var data = [trace_gauge];
 
     var layout = {
-        title: "Belly Button Washing Frequency"
+        title: "County Vaccination Status"
     };
