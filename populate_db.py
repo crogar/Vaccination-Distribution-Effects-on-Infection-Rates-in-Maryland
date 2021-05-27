@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import datetime as dt
 from sqlalchemy import create_engine
 from sqlalchemy.sql import text
 from config import password
@@ -86,3 +87,33 @@ def populate_sql():
     #                                                                           #
     # Gender Data                                                              #
     ###########################################################################
+
+    csv_path = "./maryland_covid19-gender_vaccination.csv"
+    df = pd.read_csv(csv_path)
+
+    # #### Resetting Index Values
+    df = df.reset_index(drop=True)
+    # #### Resetting object ID values
+    df["OBJECTID"] = np.arange(1,df.shape[0]+1)
+
+    columnsplit = df['VACCINATION_DATE'].str.split(' ',n=1, expand=True)
+
+    # Assigning Column 0 to DATE
+    df = df.assign(VACCINATION_DATE=columnsplit[0])
+
+    # #### Converting date from Obect to Date format
+    df['VACCINATION_DATE'] = pd.to_datetime(df["VACCINATION_DATE"], format='%Y/%m/%d')
+
+    # #### Renaming OBJECTID AND Vaccionation_date  columns    
+    df.rename(columns={"OBJECTID":"ID", "VACCINATION_DATE":"DATE"},inplace=True)
+
+    # #### Replacing NaN values with 0
+    df = df.replace(np.nan,0)
+
+     # ### putting df into vaccinations table in pgadmin server
+    # dropping values that are in any of our tables and resetting the index.
+    with engine.connect() as con:
+        statement = [text("""Truncate table gender CASCADE""")]
+        for query in statement:
+            con.execute(query)
+    df.to_sql(name='vaccinations', con=engine, if_exists='append', index=False)
