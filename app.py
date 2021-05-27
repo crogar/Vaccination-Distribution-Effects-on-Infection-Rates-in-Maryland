@@ -1,7 +1,7 @@
 import pandas as pd
 import subprocess
 import sys
-import pendulum
+# import pendulum
 import urllib.request
 import populate_db
 from collections import OrderedDict
