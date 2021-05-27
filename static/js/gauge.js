@@ -44,7 +44,7 @@ d3.csv("../../Resources/maryland_vaccinations.csv").then((vacc) => {
     console.log(vacc[0])
 });
 
-// // Creates a gauge plot with stepping color codes for washed per week
+// // Creates a gauge plot with stepping color codes for percent vaccinated
 // function gaugePlot(subject) {
 //     let percent = subject.FullyVaccinated / county_pop[Allegany].population
 //     let trace_gauge = {
