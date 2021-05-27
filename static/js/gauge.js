@@ -26,45 +26,52 @@ let county_pop = [
     {County: "Worcester", population: 56250},
 ];
 
+// Populates the dropdown with County from county_pop list
+function dropDown(county_pop) {
+    let options = d3.select("#selDataset");
+        county_pop.forEach((county) => {
+            let option = options.append("option");
+            option.text(county.County).property("value", county.County)
+        })
+};
+
+dropDown(county_pop);
 
 
 
-
-d3.csv("maryland_vaccinations.csv").then((vacc) => {
-    
+d3.csv("../../Resources/maryland_vaccinations.csv").then((vacc) => {
+    // gaugePlot(vacc.County)
+    console.log(vacc[0])
 });
 
-// Populates the dropdown with subject ID
-function dropDown(County) {
-    let options = d3.select("#selDataset");
-        County.forEach((id) => {
-            let option = options.append("option");
-            option.text(id).property("value", id)
-        })
-    };
+// // Creates a gauge plot with stepping color codes for washed per week
+// function gaugePlot(subject) {
+//     let percent = subject.FullyVaccinated / county_pop[Allegany].population
+//     let trace_gauge = {
+//         // domain: {x: [0,1], y: [0,1]},
+//         value: percent,
+//         title: {text: "Percent Vaccinated"},
+//         type: "indicator",
+//         mode: "gauge+number",
+//         gauge: {axis: {range: [null, 100], tickwidth: 1},
+//                 bar: {color: "grey"},
+//                 steps: [
+//                     {range: [0, .25], color: "red"},
+//                     {range: [.25, .50], color: "orange"},
+//                     {range: [.50, .75], color: "yellow"},
+//                     {range: [.75, 1], color: "green"}
+//                     ]
+//                 }
+//     };
 
-// Creates a gauge plot with stepping color codes for washed per week
-function gaugePlot(subject) {
-    let percent = subject.sum(FullyVaccinated) / county_pop[d3.select("#selDataset").property("value")].population
-    let trace_gauge = {
-        // domain: {x: [0,1], y: [0,1]},
-        value: percent
-        title: {text: "Percent Vaccinated"},
-        type: "indicator",
-        mode: "gauge+number",
-        gauge: {axis: {range: [null, 100], tickwidth: 1},
-                bar: {color: "grey"}
-                steps: [
-                    {range: [0, .25], color: "red"},
-                    {range: [.25, .50], color: "orange"},
-                    {range: [.50, .75], color: "yellow"},
-                    {range: [.75, 1], color: "green"}
-                    ]
-                }
-    };
+//     var data = [trace_gauge];
 
-    var data = [trace_gauge];
+//     var layout = {
+//         title: "County Vaccination Status"
+//     };
 
-    var layout = {
-        title: "County Vaccination Status"
-    };
+//     Plotly.newPlot("gauge", data, layout);
+// };
+
+
+// d3.select("#selDataset").property("value")
