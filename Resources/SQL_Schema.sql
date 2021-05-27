@@ -32,3 +32,18 @@ CREATE TABLE "vaccinations" (
      )
 );
 
+CREATE TABLE "gender" (
+    "ID" INT   NOT NULL,
+    "DATE" date   NOT NULL,
+    "Gender" varchar   NOT NULL,
+    "FirstDoseDaily" INT   NOT NULL,
+    "FirstDoseCumulative" INT   NOT NULL,
+    "SecondDoseDaily" INT   NOT NULL,
+    "SecondDoseCumulative" INT   NOT NULL,
+    "SingleDoseDaily" INT   NOT NULL,
+    "SingleDoseCumulative" INT   NOT NULL,
+    CONSTRAINT "pk_gender" PRIMARY KEY (
+        "ID"
+     )
+);
+
