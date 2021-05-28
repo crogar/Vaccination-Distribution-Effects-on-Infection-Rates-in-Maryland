@@ -110,10 +110,14 @@ def populate_sql():
     # #### Replacing NaN values with 0
     df = df.replace(np.nan,0)
 
+    # #### Converting Non-Gender Values to 'Other'
+    genders = ['Male','Female']
+    df.loc[~df['Gender'].isin(genders), 'Gender'] = 'Other'
+
      # ### putting df into vaccinations table in pgadmin server
     # dropping values that are in any of our tables and resetting the index.
     with engine.connect() as con:
         statement = [text("""Truncate table gender CASCADE""")]
         for query in statement:
             con.execute(query)
-    df.to_sql(name='vaccinations', con=engine, if_exists='append', index=False)
+    df.to_sql(name='gender', con=engine, if_exists='append', index=False)
