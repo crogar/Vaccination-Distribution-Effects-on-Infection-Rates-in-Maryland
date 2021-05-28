@@ -55,9 +55,9 @@ def gen_geojson(date):
 
 #gen_vacc use code right above as guide.
 @app.route("/gen_vaccines/<date>")
-def gen_geojson(date):
+def gen_vacc_json(date):
     """Index - Landing Page"""
-    parsed = json.loads(gen_json.get_cases(date))
+    parsed = json.loads(gen_vacc_json.get_vaccines(date))
     return jsonify(parsed)
 
 
