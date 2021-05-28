@@ -88,11 +88,9 @@ def populate_sql():
     # Gender Data                                                              #
     ###########################################################################
 
-    csv_path = "./maryland_covid19-gender_vaccination.csv"
+    csv_path = "./Resources/maryland_covid19-gender_vaccination.csv"
     df = pd.read_csv(csv_path)
 
-    # #### Resetting Index Values
-    df = df.reset_index(drop=True)
     # #### Resetting object ID values
     df["OBJECTID"] = np.arange(1,df.shape[0]+1)
 
