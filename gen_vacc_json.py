@@ -51,18 +51,18 @@ def get_vaccines(date):
         vaccines = last_date[last_date['County'] == county['county']]['FullVaccinatedCumulative'].item()
         county_pop[index]['date'] = dates
         county_pop[index]['FullVaccinatedCumulative'] = vaccines
-   
+   return json.dumps(county_pop)
     # Appending cases and coordinates to Geojson data for Maryland Counties
 
-    # Build the endpoint URL
-    target_url = 'https://opendata.arcgis.com/datasets/4c172f80b626490ea2cff7b699febedb_1.geojson'
-    # generating request and converting to json
-    geo_data = requests.get(target_url).json()
-    # Appending Coordinates, date and confirmed cases to our GeoJson Data
-    for county in range(0,len(geo_data['features'])):
-        # Setting the coordinates
-        geo_data['features'][county]['properties']['coordinates'] = county_pop[county]['coordinates']
-        # setting confirmed cases and dates
-        geo_data['features'][county]['properties']['date'] = county_pop[county]['date']
-        geo_data['features'][county]['properties']['confirmed_cases'] = county_pop[county]['Confirmed_cases']
-    return json.dumps(geo_data)
+    # # Build the endpoint URL
+    # target_url = 'https://opendata.arcgis.com/datasets/4c172f80b626490ea2cff7b699febedb_1.geojson'
+    # # generating request and converting to json
+    # geo_data = requests.get(target_url).json()
+    # # Appending Coordinates, date and confirmed cases to our GeoJson Data
+    # for county in range(0,len(geo_data['features'])):
+    #     # Setting the coordinates
+    #     geo_data['features'][county]['properties']['coordinates'] = county_pop[county]['coordinates']
+    #     # setting confirmed cases and dates
+    #     geo_data['features'][county]['properties']['date'] = county_pop[county]['date']
+    #     geo_data['features'][county]['properties']['confirmed_cases'] = county_pop[county]['Confirmed_cases']
+    

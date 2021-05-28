@@ -60,6 +60,5 @@ def gen_vacc_json(date):
     parsed = json.loads(gen_vacc_json.get_vaccines(date))
     return jsonify(parsed)
 
-
 if __name__ == "__main__":
     app.run(debug=True  )
