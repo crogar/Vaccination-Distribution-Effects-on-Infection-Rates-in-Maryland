@@ -29,8 +29,6 @@ def populate_sql():
             data.append({'ID':index,'DATE':row['DATE'],"County":county, "Confirmed_cases":row[county]})
 
     new_df = pd.DataFrame(data)
-    new_df.head()
-
     # #### Adding Case ID
     new_df['ID'] = np.arange(1,new_df.shape[0]+1)
     # ### putting df into vaccinations table in pgadmin server
@@ -46,8 +44,8 @@ def populate_sql():
             con.execute(query)
         print('table truncated')
     # Populating SQL database
-    new_df.to_sql(name='cases', con=engine, if_exists='append', index=False)
-    print('uploading df to sql database')
+    new_df.to_sql(name='cases', con=engine, if_exists='append', index=False,method='multi')
+    print('uploading df to cases sql database')
 
     ##############################################################################
     #                                                                           #
@@ -81,7 +79,8 @@ def populate_sql():
         statement = [text("""Truncate table vaccinations CASCADE""")]
         for query in statement:
             con.execute(query)
-    df.to_sql(name='vaccinations', con=engine, if_exists='append', index=False)
+    df.to_sql(name='vaccinations', con=engine, if_exists='append', index=False, method='multi')
+    print('uploading df to vaccination sql database')
 
      ##############################################################################
     #                                                                           #
@@ -118,4 +117,5 @@ def populate_sql():
         statement = [text("""Truncate table gender CASCADE""")]
         for query in statement:
             con.execute(query)
-    df.to_sql(name='gender', con=engine, if_exists='append', index=False)
+    df.to_sql(name='gender', con=engine, if_exists='append', index=False,method='multi')
+    print('uploading df to gender sql database')
