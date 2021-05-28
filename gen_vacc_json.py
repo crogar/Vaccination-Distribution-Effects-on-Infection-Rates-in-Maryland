@@ -42,5 +42,27 @@ def get_vaccines(date):
     # reading SQL 
     dfv =pd.read_sql_query('select * from vaccinations', con=engine)
     # Converting Date column from String to Dates
-    dfv['DATE'] = pd.to_datetime(dfv['DATE'])
+    dfv['DATE'] = dfv['DATE'].astype(str)
     last_date = dfv[dfv['DATE'] == date]
+
+    # Populating county_pop with number of vaccines for that specific date
+    for index,county in enumerate(county_pop):
+        dates = date
+        vaccines = last_date[last_date['County'] == county['county']]['FullVaccinatedCumulative'].item()
+        counties[index]['date'] = dates
+        counties[index]['FullVaccinatedCumulative'] = vaccines
+    return json.dumps(county_pop)
+    # Appending cases and coordinates to Geojson data for Maryland Counties
+
+    # # Build the endpoint URL
+    # target_url = 'https://opendata.arcgis.com/datasets/4c172f80b626490ea2cff7b699febedb_1.geojson'
+    # # generating request and converting to json
+    # geo_data = requests.get(target_url).json()
+    # # Appending Coordinates, date and confirmed cases to our GeoJson Data
+    # for county in range(0,len(geo_data['features'])):
+    #     # Setting the coordinates
+    #     geo_data['features'][county]['properties']['coordinates'] = counties[county]['coordinates']
+    #     # setting confirmed cases and dates
+    #     geo_data['features'][county]['properties']['date'] = counties[county]['date']
+    #     geo_data['features'][county]['properties']['confirmed_cases'] = counties[county]['Confirmed_cases']
+    # return json.dumps(geo_data)
