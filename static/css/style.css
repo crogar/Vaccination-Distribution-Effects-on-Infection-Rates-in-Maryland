@@ -163,12 +163,32 @@ main{
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 2%;
-    padding: 10px;
+    padding: 1px 10px 10px 10px;
     border-radius: 5px;
     box-shadow: -3px 2px 8px 4px rgba(56,40,40,0.59);
     -webkit-box-shadow: -3px 2px 8px 4px rgba(56,40,40,0.59);
     -moz-box-shadow: -3px 2px 8px 4px rgba(56,40,40,0.59);
+    background-color: #283747;
+    color: whitesmoke;
 }
 .container h1{
     text-align: center;
+}
+
+.dashboard-header{
+    background-color: whitesmoke;
+    color: var(--bg-secondary);
+    width: 100%;
+}
+
+.dashboard{
+
+}
+
+.even-items{
+    display: flex;
+}
+
+.even-items > * {
+    flex-basis: 100%;
 }
