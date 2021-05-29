@@ -43,3 +43,11 @@ def get_cases(date):
             geo_data['features'][county]['properties']['date'] = counties[county]['date']
             geo_data['features'][county]['properties']['confirmed_cases'] = counties[county]['Confirmed_cases']
     return json.dumps(geo_data)
+
+def gen_cases_dates():
+    '''This function returns a Json like list containing the unique dates in the cases SQL data table'''
+    df =pd.read_sql_query('select * from cases', con=engine)
+    df['DATE'] = df['DATE'].astype(str)
+    dates_unique = [str(date).replace("T00:00:00.000000000","") for date in df['DATE'].unique()]
+    return json.dumps(dates_unique)
+
