@@ -137,6 +137,7 @@ main{
 .dashboard-header{
     background-color: whitesmoke;
     color: var(--bg-secondary);
+    border-radius: 5px;
     width: 100%;
 }
 
