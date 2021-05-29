@@ -146,7 +146,7 @@ main{
 .col{
     padding: 5px;
     border-radius: 2px;
-    background-color: gainsboro;
+    background-color: whitesmoke;
     color: var(--bg-secondary);
 }
 
