@@ -145,7 +145,7 @@ main{
 }
 .col{
     padding: 5px;
-    border: 2px red dotted;
+    border-radius: 2px;
     background-color: gainsboro;
     color: var(--bg-secondary);
 }
@@ -153,7 +153,7 @@ main{
 .content-sidebars{
     display: flex;
     flex-wrap: wrap;
-
+    gap: 0.5em;
 }
 
 .content-sidebars > *:nth-child(1){
