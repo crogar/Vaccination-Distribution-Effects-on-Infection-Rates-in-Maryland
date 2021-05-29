@@ -148,6 +148,7 @@ main{
     padding: 5px;
     border-radius: 2px;
     background-color: whitesmoke;
+    border-radius: 4px;
     color: var(--bg-secondary);
 }
 
