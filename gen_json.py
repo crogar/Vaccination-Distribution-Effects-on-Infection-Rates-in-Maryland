@@ -30,13 +30,16 @@ def get_cases(date):
 
     # Build the endpoint URL
     target_url = 'https://opendata.arcgis.com/datasets/4c172f80b626490ea2cff7b699febedb_1.geojson'
+    path_to_file = "./Resources/Maryland_Physical_Boundaries_-_County_Boundaries_(Generalized).geojson"
     # generating request and converting to json
-    geo_data = requests.get(target_url).json()
-    # Appending Coordinates, date and confirmed cases to our GeoJson Data
-    for county in range(0,len(geo_data['features'])):
-        # Setting the coordinates
-        geo_data['features'][county]['properties']['coordinates'] = counties[county]['coordinates']
-        # setting confirmed cases and dates
-        geo_data['features'][county]['properties']['date'] = counties[county]['date']
-        geo_data['features'][county]['properties']['confirmed_cases'] = counties[county]['Confirmed_cases']
+    geo_data = None
+    with open(path_to_file) as f:
+        geo_data = json.load(f)
+        # Appending Coordinates, date and confirmed cases to our GeoJson Data
+        for county in range(0,len(geo_data['features'])):
+            # Setting the coordinates
+            geo_data['features'][county]['properties']['coordinates'] = counties[county]['coordinates']
+            # setting confirmed cases and dates
+            geo_data['features'][county]['properties']['date'] = counties[county]['date']
+            geo_data['features'][county]['properties']['confirmed_cases'] = counties[county]['Confirmed_cases']
     return json.dumps(geo_data)
