@@ -116,49 +116,8 @@ main{
     width: 40%;
     transform: rotate(-180deg);
   }
- /* small screens */
-  @media only screen and (max-width:600px){
-    .navbar{
-        bottom: 0;
-        width: 100vw;
-        height: 4rem;
-    }
-    
-    .logo{
-        display: none;
-    }
-    .navbar-nav{
-        flex-direction: row;
-    }
-    .nav-link{
-        justify-content: center;
-    }
-    main{
-        margin: 0%;
-    }
-    .navbar:hover{
-        width: 100vw;
-    
-    }
-  }
 
-  /* large screens */
-@media only screen and (min-width:600px){
-    .navbar{
-        top:0;
-        width: 5rem;
-        height: 100vh;
-    }
-    .navbar:hover{
-        width: 16rem;
-    }
-    .navbar:hover .link-text{
-        display: inline;
-        transition: opacity var(--transition-speed);
-    }
-}
-
-.container{
+  .container{
     margin:auto;
     margin-left: 2%;
     margin-right: 2%;
@@ -184,11 +143,70 @@ main{
 .dashboard{
 
 }
+.col{
+    padding: 5px;
+    border: 2px red dotted;
+    background-color: gainsboro;
+    color: var(--bg-secondary);
+}
 
-.even-items{
+.content-sidebars{
     display: flex;
+    flex-wrap: wrap;
+
 }
 
-.even-items > * {
-    flex-basis: 100%;
+.content-sidebars > *:nth-child(1){
+    flex: 1 1 30%;
+    min-width: 35ch;
 }
+.content-sidebars > *:nth-child(2){
+    flex: 1 1 30%;
+    min-width: 35ch;
+}
+.content-sidebars > *:nth-child(3){
+    flex: 1 1 35%;
+    min-width: 35ch;
+}
+
+ /* small screens */
+  @media only screen and (max-width:600px){
+    .navbar{
+        bottom: 0;
+        width: 100vw;
+        height: 4rem;
+    }
+    
+    .logo{
+        display: none;
+    }
+    .navbar-nav{
+        flex-direction: row;
+    }
+    .nav-link{
+        justify-content: center;
+    }
+    main{
+        margin: 0%;
+    }
+    .navbar:hover{
+        width: 100vw;
+    }
+  }
+
+  /* large screens */
+@media only screen and (min-width:600px){
+    .navbar{
+        top:0;
+        width: 5rem;
+        height: 100vh;
+    }
+    .navbar:hover{
+        width: 16rem;
+    }
+    .navbar:hover .link-text{
+        display: inline;
+        transition: opacity var(--transition-speed);
+    }
+}
+
