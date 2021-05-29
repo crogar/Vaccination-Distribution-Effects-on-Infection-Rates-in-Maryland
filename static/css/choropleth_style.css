@@ -1,7 +1,10 @@
 /* CSS from the Leaflet-Choropleth documentation */
 #map-cases{
-    height: 300px;
+    height: auto;
     width: 500px;
+    margin: 0 auto;
+    padding: 1px;
+    position: relative;
 }
 .legend {
     margin:0;
