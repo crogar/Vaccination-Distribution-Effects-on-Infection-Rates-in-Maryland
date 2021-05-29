@@ -51,7 +51,7 @@ def get_vaccines(date):
         vaccines = last_date[last_date['County'] == county['county']]['FullVaccinatedCumulative'].item()
         county_pop[index]['date'] = dates
         county_pop[index]['FullVaccinatedCumulative'] = vaccines
-   return json.dumps(county_pop)
+    return json.dumps(county_pop)
     # Appending cases and coordinates to Geojson data for Maryland Counties
 
     # # Build the endpoint URL

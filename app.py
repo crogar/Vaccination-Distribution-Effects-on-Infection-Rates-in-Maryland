@@ -6,7 +6,7 @@ import pendulum
 import urllib.request
 import populate_db
 from collections import OrderedDict
-import gen_json
+import gen_json, gen_vacc_json
 
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
