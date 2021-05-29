@@ -133,6 +133,10 @@ main{
 .container h1{
     text-align: center;
 }
+.well{
+    color: var(--bg-primary);
+    background-color: whitesmoke;
+}
 
 .dashboard-header{
     background-color: whitesmoke;
