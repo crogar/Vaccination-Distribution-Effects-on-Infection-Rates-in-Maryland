@@ -51,3 +51,10 @@ def gen_cases_dates():
     dates_unique = [str(date).replace("T00:00:00.000000000","") for date in df['DATE'].unique()]
     return json.dumps(dates_unique)
 
+def gen_vaccination_dates():
+    '''This function returns a Json like list containing the unique dates in the cases SQL data table'''
+    df =pd.read_sql_query('select * from vaccinations', con=engine)
+    df['DATE'] = df['DATE'].astype(str)
+    dates_unique = [str(date).replace("T00:00:00.000000000","") for date in df['DATE'].unique()]
+    return json.dumps(dates_unique)
+

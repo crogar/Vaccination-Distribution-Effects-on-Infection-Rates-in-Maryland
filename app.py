@@ -59,6 +59,12 @@ def cases_dates():
     parsed = json.loads(gen_json.gen_cases_dates())
     return jsonify(parsed)
 
+# Returns a list with dates since first day to last for vaccines data table
+@app.route("/get_vaccination_dates")
+def vacinnation_dates():
+    parsed = json.loads(gen_json.gen_vaccination_dates())
+    return jsonify(parsed)
+
 #gen_vacc use code right above as guide.
 @app.route("/gen_vaccines/<date>")
 def gen_vacc(date):
