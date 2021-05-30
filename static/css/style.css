@@ -144,6 +144,18 @@ main{
     border-radius: 5px;
     width: 100%;
 }
+.box-header{
+    /* display: flex; */
+    text-align: center;
+    align-items: center;
+}
+#dates-cases-select,.box-title{
+    position: relative;
+    display: inline;
+}
+#dates-cases-select{
+    float:right;
+}
 
 .dashboard{
     margin:auto;
