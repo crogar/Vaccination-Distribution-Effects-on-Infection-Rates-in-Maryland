@@ -150,6 +150,7 @@ main{
 }
 
 .col{
+    overflow: auto;
     padding: 5px;
     border-radius: 2px;
     background-color: whitesmoke;
@@ -175,6 +176,11 @@ main{
     flex: 1 1 35%;
     min-width: 35ch;
     max-width: 75ch;
+}
+
+.gauge{
+    position: relative;
+    margin: 0 auto;
 }
 
  /* small screens */

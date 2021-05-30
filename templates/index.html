@@ -17,6 +17,8 @@
   <link rel="stylesheet" type="text/css" href="/static/css/choropleth_style.css">
   <!-- JQuery Minized -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- Plotly Minimized -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body>
@@ -72,7 +74,7 @@
         </div>
         <div class="well" style="width: 180px; border-radius: 3px;margin-bottom: 10px;padding-left: 3%;padding-bottom: 10px; align-items: center; justify-items: center;">
           <h4>Select County</h4>
-          <select id="counties-selector" ></select>
+          <select id="counties-selector" style="margin:auto;" ></select>
         </div>
         <div class="content-sidebars">
           <div class="col state-cases">
@@ -80,10 +82,15 @@
             <div id="gauge"></div>
           </div>
           <div class="col">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <select id="dates-cases-select" ></select> <hr>
+            <div id="map-cases"></div>
           </div>
           <div class="col">
-            <div id="map-cases"></div>
+            <select id="dates-cases-select" ></select> <hr>
+            <div class="well" style="width: 180px; border-radius: 3px;margin-bottom: 10px;padding-left: 3%;padding-bottom: 10px; align-items: center; justify-items: center;">
+              <h4>Select County</h4>
+              <select id="counties-selector" style="margin:auto;" ></select>
+            </div>
           </div>
         </div>
       </div>
