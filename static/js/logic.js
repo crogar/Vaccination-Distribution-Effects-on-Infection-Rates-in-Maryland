@@ -29,6 +29,8 @@ $.getJSON('http://127.0.0.1:5000/get_vaccination_dates', function(data) { // Pop
     var $dropdown = $("#dates-vaccines-select");
     $dropdown.append($("<option />").val(this).text(this));
   });    
+  var initial_date = data[data.length-1]
+  gen_date(initial_date);
 });
 
 
@@ -94,5 +96,3 @@ function gauge_plot(percent){
 var layout = { width: 400, height: 300, margin: { t: 0, b: 0 } };
 Plotly.newPlot('gauge', data, layout);  
 }
-
-gen_date(initial_date);
