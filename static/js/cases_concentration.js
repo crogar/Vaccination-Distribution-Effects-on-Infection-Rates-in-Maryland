@@ -8,11 +8,11 @@ window.addEventListener('load', (event) => {
 });
 var myMap = null;
 
-function create_choropleth(){
+function create_choropleth(date){
 
 // Load in geojson data
 // var geoData = "../static/js/maryland_geojson.geojson";
-var geoData = "http://127.0.0.1:5000/gen_cases/2021-05-24";
+var geoData = "http://127.0.0.1:5000/gen_cases/" + date;
 if(myMap != undefined || myMap != null){
   myMap.remove();
 }
@@ -119,6 +119,4 @@ fetch(geoData)
 
 });
 }
-
-create_choropleth();
 
