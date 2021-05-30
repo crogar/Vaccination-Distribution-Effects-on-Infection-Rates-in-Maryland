@@ -173,9 +173,9 @@ main{
     min-width: 35ch;
 }
 .content-sidebars > *:nth-child(3){
-    flex: 1 1 35%;
+    flex: 1 1 10%;
     min-width: 35ch;
-    max-width: 75ch;
+    /* max-width: 75ch; */
 }
 
 .gauge{
