@@ -59,6 +59,14 @@ $(document).ready(function() {
   });
 });
 
+// Event Handler to check when a new date is selected -- Choropleth
+$(document).ready(function() {  
+  $('#dates-cases-select').change(function(){
+      console.log($(this).find("option:selected").attr('value'))  
+      create_choropleth($(this).find("option:selected").attr('value')) ;
+  });
+});
+
 
 
 
