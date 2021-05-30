@@ -15,10 +15,7 @@ html,body{
     padding: 0;
     height: 100%;
 }
-#map {
-    height: 400px;
-    width: 600px;
-}
+
 
 body::-webkit-scrollbar{
     width: 0.25rem;
@@ -170,7 +167,7 @@ main{
     color: var(--bg-secondary);
 }
 .map-container{
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 .content-sidebars{
@@ -193,11 +190,7 @@ main{
     /* max-width: 75ch; */
 }
 
-/* .gauge, .svg-container{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-} */
+/*       */
 
  /* small screens */
   @media only screen and (max-width:600px){

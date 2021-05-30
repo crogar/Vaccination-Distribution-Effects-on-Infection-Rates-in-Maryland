@@ -105,7 +105,18 @@ function gauge_plot(percent, date){
   }
 ];
 
-var layout = {margin: { t: 0, b: 0 }, font: {size: 14}};
+var layout = {width: 400, height: 350,margin: { t: 0, b: 0 }, font: {size: 14}};
 var config = {responsive: true}
-Plotly.newPlot('gauge', data, layout, config);  
+Plotly.newPlot('gauge', data, layout);  
 }
+
+$( window ).resize(function() {
+  var dom_rect = document.getElementById('gauge').getBoundingClientRect()
+  // console.log(document.getElementById('gauge').getBoundingClientRect())
+  var update = {
+    width: dom_rect.width,  // or any new width
+    height: dom_rect.height  // " "
+  };
+  
+  Plotly.relayout('gauge', update);
+});

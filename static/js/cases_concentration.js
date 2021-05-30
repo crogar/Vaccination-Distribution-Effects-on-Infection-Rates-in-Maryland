@@ -43,7 +43,11 @@ var baseMaps = {
     zoom: 7,
     layers: [dark],
   });
-  
+  myMap.invalidateSize();
+  $('#map-cases').on('shown.bs.modal', function() {
+    myMap.resize();
+    console.log("map resized")
+  });
   // Adding tile layer
   L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     // attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
@@ -120,3 +124,7 @@ fetch(geoData)
 });
 }
 
+$( window ).resize(function() {
+  // $( "#log" ).append( "<div>Handler for .resize() called.</div>" );
+  // console.log(this.innerHeight, this.innerWidth)
+});
