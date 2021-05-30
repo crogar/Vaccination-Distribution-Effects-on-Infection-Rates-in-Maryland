@@ -38,14 +38,12 @@ county_pop = [
 ]
 
 def get_vaccines(date):
-    # date = '2021-05-22'
     # reading SQL 
     dfv =pd.read_sql_query('select * from vaccinations', con=engine)
     # Converting Date column from String to Dates
     dfv['DATE'] = dfv['DATE'].astype(str)
     dfv = dfv[dfv['County'] != 'Unknown']
     last_date = dfv[dfv['DATE'] == date]
-    print(last_date['County'])
 
     # Populating county_pop with number of vaccines for that specific date
     for index,county in enumerate(county_pop):
