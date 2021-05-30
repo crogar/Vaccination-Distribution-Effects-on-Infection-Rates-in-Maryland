@@ -1,3 +1,5 @@
+county_vacc = [{"county": "Allegany", "population": 75300, "fully_vaccinated": 24246}];
+
 // Creates county population list 
 let county_pop = [
     {County: "Allegany", population: 75300},
@@ -35,43 +37,49 @@ function dropDown(county_pop) {
         })
 };
 
-dropDown(county_pop);
 
+// d3.csv("../../Resources/maryland_vaccinations.csv").then((vacc) => {
+//     // gaugePlot(vacc.County)
+//     console.log(vacc[700].FullVaccinatedCumulative)
+// });
 
-
-d3.csv("../../Resources/maryland_vaccinations.csv").then((vacc) => {
-    // gaugePlot(vacc.County)
-    console.log(vacc[700].FullVaccinatedCumulative)
-});
 
 // // Creates a gauge plot with stepping color codes for percent vaccinated
-// function gaugePlot(subject) {
-//     let percent = subject.FullyVaccinated / county_pop[Allegany].population
-//     let trace_gauge = {
-//         // domain: {x: [0,1], y: [0,1]},
-//         value: percent,
-//         title: {text: "Percent Vaccinated"},
-//         type: "indicator",
-//         mode: "gauge+number",
-//         gauge: {axis: {range: [null, 100], tickwidth: 1},
-//                 bar: {color: "grey"},
-//                 steps: [
-//                     {range: [0, .25], color: "red"},
-//                     {range: [.25, .50], color: "orange"},
-//                     {range: [.50, .75], color: "yellow"},
-//                     {range: [.75, 1], color: "green"}
-//                     ]
-//                 }
-//     };
+function gaugePlot(county) {
+    let percent = county.fully_vaccinated / county.population
+    let trace_gauge = {
+        // domain: {x: [0,1], y: [0,1]},
+        value: percent,
+        title: {text: "Percent Vaccinated"},
+        type: "indicator",
+        mode: "gauge+number",
+        gauge: {axis: {range: [null, 100], tickwidth: 1},
+                bar: {color: "grey"},
+                steps: [
+                    {range: [0, .25], color: "red"},
+                    {range: [.25, .50], color: "orange"},
+                    {range: [.50, .75], color: "yellow"},
+                    {range: [.75, 1], color: "green"}
+                    ]
+                }
+    };
 
-//     var data = [trace_gauge];
+    var data = [trace_gauge];
 
-//     var layout = {
-//         title: "County Vaccination Status"
-//     };
+    var layout = {
+        title: "County Vaccination Status"
+    };
 
-//     Plotly.newPlot("gauge", data, layout);
-// };
+    Plotly.newPlot("gauge", data, layout);
+};
 
+dropDown(county_pop);
+gaugePlot(county_vacc)
 
-// d3.select("#selDataset").property("value")
+let selectedCounty = d3.select("#selDataset");
+    selectedCounty.on("change",function() {        //creates an on-change function to update the visualizations based on subject
+    var county = selectedCounty.property("value") //pulls the subject nuber that is selected
+    var cntyIndex = data.names.indexOf(county)  //uses the value of "names" to identify the index so that it can be referenced in the functions below
+    
+gaugePlot(county_vacc[cntyIndex]);
+    });
