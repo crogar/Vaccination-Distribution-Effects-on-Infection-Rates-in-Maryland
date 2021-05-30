@@ -165,16 +165,16 @@ main{
 }
 
 .content-sidebars > *:nth-child(1){
-    flex: 1 1 30%;
+    flex: 1 1 40%;
     min-width: 35ch;
 }
 .content-sidebars > *:nth-child(2){
-    flex: 1 1 30%;
+    flex: 1 1 40%;
     min-width: 35ch;
 }
 .content-sidebars > *:nth-child(3){
     flex: 1 1 10%;
-    min-width: 35ch;
+    min-width: 20ch;
     /* max-width: 75ch; */
 }
 
