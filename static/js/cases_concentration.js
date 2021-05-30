@@ -6,7 +6,16 @@ window.addEventListener('load', (event) => {
                     .style("width", width + 'px')
                     .style("height", height + 'px');
 });
+var myMap = null;
 
+function create_choropleth(){
+
+// Load in geojson data
+// var geoData = "../static/js/maryland_geojson.geojson";
+var geoData = "http://127.0.0.1:5000/gen_cases/2021-05-24";
+if(myMap != undefined || myMap != null){
+  myMap.remove();
+}
 // Define variables for our tile layers
 var light = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
   // attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
@@ -29,7 +38,7 @@ var baseMaps = {
   };
   
 // Creating map object
-var myMap = L.map("map-cases", {
+ myMap = L.map("map-cases", {
     center: [38.5221781, -77.10249019999999],
     zoom: 7,
     layers: [dark],
@@ -45,15 +54,8 @@ var myMap = L.map("map-cases", {
     accessToken: API_KEY
   }).addTo(myMap);
   L.control.layers(baseMaps).addTo(myMap);
-  
 
-// Load in geojson data
-// var geoData = "../static/js/maryland_geojson.geojson";
-var geoData = "http://127.0.0.1:5000/gen_cases/2021-05-24";
-
-
-var geojson;
-
+  var geojson;
 // Grab data with d3
 fetch(geoData)
 	.then((r) => r.json())
@@ -116,5 +118,7 @@ fetch(geoData)
   legend.addTo(myMap);
 
 });
+}
 
+create_choropleth();
 
