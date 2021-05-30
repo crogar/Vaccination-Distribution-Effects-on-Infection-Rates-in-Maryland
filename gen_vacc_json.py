@@ -43,12 +43,17 @@ def get_vaccines(date):
     dfv =pd.read_sql_query('select * from vaccinations', con=engine)
     # Converting Date column from String to Dates
     dfv['DATE'] = dfv['DATE'].astype(str)
+    dfv = dfv[dfv['County'] != 'Unknown']
     last_date = dfv[dfv['DATE'] == date]
+    print(last_date['County'])
 
     # Populating county_pop with number of vaccines for that specific date
     for index,county in enumerate(county_pop):
         dates = date
-        vaccines = last_date[last_date['County'] == county['county']]['FullVaccinatedCumulative'].item()
+        try:
+            vaccines = last_date[last_date['County'] == county['county']]['FullVaccinatedCumulative'].item()
+        except:
+            vaccines = 0
         county_pop[index]['date'] = dates
         county_pop[index]['FullVaccinatedCumulative'] = vaccines
     return json.dumps(county_pop)
