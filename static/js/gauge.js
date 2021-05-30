@@ -1,6 +1,6 @@
 county_vacc = [{"county": "Allegany", "population": 75300, "fully_vaccinated": 24246}];
-dropDown(county_vacc.county);
-gaugePlot(county_vacc.county)
+dropDown(county_vacc);
+gaugePlot(county_vacc[0])
 
 // Selects the county that was chosen in the dropdown menu
 let selectedCounty = d3.select("#selDataset");
@@ -10,7 +10,7 @@ let selectedCounty = d3.select("#selDataset");
 
     console.log(selectedCounty)
 
-    dropDown(county_vacc.county);
+    dropDown(county_vacc);
     gaugePlot(county_vacc[cntyIndex]);
     });
 
@@ -27,7 +27,7 @@ function dropDown(countyID) {
 function gaugePlot(data) {
     let trace_gauge = {
         // domain: {x: [0,1], y: [0,1]},
-        value: data.fully_vaccinated / data.population,
+        value: (data.fully_vaccinated / data.population) * 100,
         title: {text: "Percent Vaccinated"},
         type: "indicator",
         mode: "gauge+number",
