@@ -45,7 +45,7 @@ function gen_date(date){
   var fully_vaccinated = data.map(couty => couty.FullVaccinatedCumulative)
   const sum_population = population.reduce((partial_sum, a) => partial_sum + a,0);
   const sum_vaccinated = fully_vaccinated.reduce((partial_sum, a) => partial_sum + a,0);
-  gauge_plot((sum_vaccinated/sum_population)*100) 
+  gauge_plot((sum_vaccinated/sum_population)*100, date) 
 });
 }
  
@@ -61,13 +61,13 @@ $(document).ready(function() {
 
 
 // Creating Gauge Plot
-function gauge_plot(percent){
+function gauge_plot(percent, date){
   var value = percent;
   var data = [
   {
     domain: { x: [0, 2], y: [0, 2] },
     value: value,
-    title: { text: "<b>Percentage of fully vaccinated</b> <br> People In Maryland" },
+    title: { text: "<b>Percentage of fully vaccinated</b> <br> People In Maryland - " + date },
     type: "indicator",
     mode: "gauge+number",
     gauge: {
