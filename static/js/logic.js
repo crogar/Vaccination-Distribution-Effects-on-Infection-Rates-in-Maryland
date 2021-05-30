@@ -36,7 +36,8 @@ $.getJSON('http://127.0.0.1:5000/get_vaccination_dates', function(data) { // Pop
 var initial_date = "2021-05-28"
 
 // Initial gauge plot
-$.getJSON('http://127.0.0.1:5000/gen_vaccines/' + initial_date, function(data) { // Populating dates for cases    
+function gen_date(date){
+  $.getJSON('http://127.0.0.1:5000/gen_vaccines/' + date, function(data) { // Populating dates for cases    
   // var population = this.map
   var population = data.map(couty => couty.population)
   var fully_vaccinated = data.map(couty => couty.FullVaccinatedCumulative)
@@ -44,6 +45,18 @@ $.getJSON('http://127.0.0.1:5000/gen_vaccines/' + initial_date, function(data) {
   const sum_vaccinated = fully_vaccinated.reduce((partial_sum, a) => partial_sum + a,0);
   gauge_plot((sum_vaccinated/sum_population)*100) 
 });
+}
+ 
+// Event Handler to check when a new date is selected
+$(document).ready(function() {  
+  $('#dates-vaccines-select').change(function(){
+      console.log($(this).find("option:selected").attr('value'))  
+      gen_date($(this).find("option:selected").attr('value')) ;
+  });
+});
+
+
+
 
 // Creating Gauge Plot
 function gauge_plot(percent){
@@ -82,4 +95,4 @@ var layout = { width: 400, height: 300, margin: { t: 0, b: 0 } };
 Plotly.newPlot('gauge', data, layout);  
 }
 
-gauge_plot();
+gen_date(initial_date);
