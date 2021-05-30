@@ -18,20 +18,22 @@ $("document").ready(function(){
 }); // Populating DropDown Menu with counties
 
 $.getJSON('http://127.0.0.1:5000/get_cases_dates', function(data) { // Populating dates for cases    
+  var reversed = data.reverse();
   $.each(data, function() {
     var $dropdown = $("#dates-cases-select");
     $dropdown.append($("<option />").val(this).text(this));
   });
-  var initial_date = data[data.length-1]
+  var initial_date = reversed[0]
   create_choropleth(initial_date); // Creating the choropleth using the latest date in the date set    
 });
 
 $.getJSON('http://127.0.0.1:5000/get_vaccination_dates', function(data) { // Populating dates for vaccinations   
-  $.each(data, function() {
+  var reversed = data.reverse();
+  $.each(reversed, function() {
     var $dropdown = $("#dates-vaccines-select");
     $dropdown.append($("<option />").val(this).text(this));
   });    
-  var initial_date = data[data.length-1]
+  var initial_date = reversed[0]
   gen_date(initial_date);
 });
 
