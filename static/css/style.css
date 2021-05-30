@@ -136,6 +136,7 @@ main{
 .well{
     color: var(--bg-primary);
     background-color: whitesmoke;
+    overflow: auto;
 }
 
 .dashboard-header{
@@ -162,12 +163,14 @@ main{
 }
 
 .col{
-    overflow: auto;
     padding: 5px;
     border-radius: 2px;
     background-color: whitesmoke;
     border-radius: 4px;
     color: var(--bg-secondary);
+}
+.map-container{
+    overflow: auto;
 }
 
 .content-sidebars{
@@ -190,10 +193,11 @@ main{
     /* max-width: 75ch; */
 }
 
-.gauge{
-    position: relative;
-    margin: 0 auto;
-}
+/* .gauge, .svg-container{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+} */
 
  /* small screens */
   @media only screen and (max-width:600px){

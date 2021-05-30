@@ -105,6 +105,7 @@ function gauge_plot(percent, date){
   }
 ];
 
-var layout = { width: 400, height: 300, margin: { t: 0, b: 0 } };
-Plotly.newPlot('gauge', data, layout);  
+var layout = {margin: { t: 0, b: 0 }, font: {size: 14}};
+var config = {responsive: true}
+Plotly.newPlot('gauge', data, layout, config);  
 }
