@@ -1,10 +1,13 @@
 window.addEventListener('load', (event) => {
-  var width = 0.30 * window.innerWidth,
-  height = 0.35 * window.innerHeight;
-
+  var dom_rect = document.getElementById('gauge').getBoundingClientRect()
+  // console.log(document.getElementById('gauge').getBoundingClientRect())
+  var update = {
+    width: dom_rect.width,  // or any new width
+    height: 450 // " "
+  };
   var searchcolumn = d3.select("#map-cases")
-                    .style("width", width + 'px')
-                    .style("height", height + 'px');
+                    .style("width", update.width + 'px')
+                    .style("height", update.height + 'px');
 });
 var myMap = null;
 
