@@ -24,9 +24,23 @@ $.getJSON('http://127.0.0.1:5000/get_cases_dates', function(data) { // Populatin
   });    
 });
 
+
+// Get current selected date
+var initial_date = "2021-05-28"
+
+// Initial gauge plot
+$.getJSON('http://127.0.0.1:5000/gen_vaccines/' + initial_date, function(data) { // Populating dates for cases    
+  // var population = this.map
+  var population = data.map(couty => couty.population)
+  var fully_vaccinated = data.map(couty => couty.FullVaccinatedCumulative)
+  const sum_population = population.reduce((partial_sum, a) => partial_sum + a,0);
+  const sum_vaccinated = fully_vaccinated.reduce((partial_sum, a) => partial_sum + a,0);
+  gauge_plot((sum_vaccinated/sum_population)*100) 
+});
+
 // Creating Gauge Plot
-function gauge_plot(){
-  var value = 7;
+function gauge_plot(percent){
+  var value = percent;
   var data = [
   {
     domain: { x: [0, 2], y: [0, 2] },
