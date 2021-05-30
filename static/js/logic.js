@@ -52,16 +52,22 @@ function gauge_plot(percent){
   {
     domain: { x: [0, 2], y: [0, 2] },
     value: value,
-    title: { text: "<b>Percentage of vaccinated People</b> <br> In Maryland" },
+    title: { text: "<b>Percentage of fully vaccinated</b> <br> People In Maryland" },
     type: "indicator",
     mode: "gauge+number",
     gauge: {
       axis: { range: [0, 100] },
       steps: [
-        { range: [0, 25], color: "rgb(255, 0, 0,0.8)" },
-        { range: [25, 50], color: "orange" },
-        { range: [50, 75], color: "yellow" },
-        { range: [75, 100], color: "green" }, 
+        { range: [0, 10], color: "FF0000" },
+        { range: [10, 20], color: "E51900" },
+        { range: [20, 30], color: "CC3300" },
+        { range: [30, 40], color: "B24C00" },
+        { range: [40, 50], color: "996600" },
+        { range: [50, 60], color: "7F7F00" },
+        { range: [60, 70], color: "669900" },
+        { range: [70, 80], color: "4CB200" },
+        { range: [80, 90], color: "32CC00" }, 
+        { range: [90, 100], color: "19E500" }, 
       ],
       threshold: {
         line: { color: "purple", width: 7 },
