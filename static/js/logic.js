@@ -17,9 +17,11 @@ $("document").ready(function(){
   });
 }); // Populating DropDown Menu with counties
 
-$.getJSON('http://127.0.0.1:5000/get_cases_dates', function(data) { // Populating dates for cases    
-  var reversed = data.reverse();
-  $.each(data, function() {
+$.getJSON('http://127.0.0.1:5000/get_cases_dates', function(data) { // Populating dates for cases   
+  var reversed 
+  reversed = data.sort()
+  reversed = data.reverse();
+  $.each(reversed, function() {
     var $dropdown = $("#dates-cases-select");
     $dropdown.append($("<option />").val(this).text(this));
   });
@@ -28,7 +30,9 @@ $.getJSON('http://127.0.0.1:5000/get_cases_dates', function(data) { // Populatin
 });
 
 $.getJSON('http://127.0.0.1:5000/get_vaccination_dates', function(data) { // Populating dates for vaccinations   
-  var reversed = data.reverse();
+  var reversed 
+  reversed = data.sort()
+  reversed = data.reverse();
   $.each(reversed, function() {
     var $dropdown = $("#dates-vaccines-select");
     $dropdown.append($("<option />").val(this).text(this));
@@ -36,10 +40,6 @@ $.getJSON('http://127.0.0.1:5000/get_vaccination_dates', function(data) { // Pop
   var initial_date = reversed[0]
   gen_date(initial_date);
 });
-
-
-// Get current selected date
-var initial_date = "2021-05-28"
 
 // Initial gauge plot
 function gen_date(date){
