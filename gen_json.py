@@ -44,6 +44,17 @@ def get_cases(date):
             geo_data['features'][county]['properties']['confirmed_cases'] = counties[county]['Confirmed_cases']
     return json.dumps(geo_data)
 
+def get_vaccines_gender(date):
+    df =pd.read_sql_query("SELECT * FROM gender", con=engine)
+    df['DATE'] = df['DATE'].astype(str)
+    last_date = df[df['DATE'] == date]
+    gender_df = last_date[['Gender','SecondDoseCumulative']]
+    gender_df = gender_df.groupby(['Gender'])['SecondDoseCumulative'].sum()
+    gender_data = []
+    gender_dict = gender_df.to_dict()
+    gender_data.append(gender_dict)
+    return json.dumps(gender_data)
+
 def get_cases_heatmap(date):
     counties = {"Allegany":[39.6255251,-78.6114999],"Anne_Arundel":[38.9530109,-76.5488232],"Baltimore":[39.4647665,-76.7336521],"Baltimore_City":[39.2903848,-76.6121893],"Calvert":[38.49495030000001,-76.5025742],"Caroline":[38.9105018,-75.8533954],"Carroll":[39.5423418,-77.0564464],"Cecil":[39.5739403,-75.94632399999999],"Charles":[38.5221781,-77.10249019999999],"Dorchester":[38.4152819,-76.17837390000001],"Frederick":[39.3844507,-77.4701972],"Garrett":[39.5681243,-79.29021329999999],"Harford":[39.5838964,-76.3637285],"Howard":[39.2873463,-76.964306],"Kent":[39.2713804,-76.1319953],"Montgomery":[39.1547426,-77.2405153],"Prince_Georges":[38.78492110000001,-76.8720961],"Queen_Annes":[39.0263572,-76.1319953],"Somerset":[38.0862333,-75.8533954],"St_Marys":[38.1060259,-76.3637285],"Talbot":[38.7803973,-76.1319953],"Washington":[39.641762,-77.719993],"Wicomico":[38.3941813,-75.667356],"Worcester":[38.1584227,-75.4344727]}
     df =pd.read_sql_query('select * from cases', con=engine)
