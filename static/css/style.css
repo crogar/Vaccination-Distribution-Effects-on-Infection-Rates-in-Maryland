@@ -201,9 +201,9 @@ main{
     min-width: 35ch;
 }
 .content-sidebars > *:nth-child(3){
-    flex: 0 1 30%;
+    flex: 1 1 30%;
     min-width: 55ch;
-    /* max-width: 75ch; */
+    max-width: 100%;
 }
 
 /*       */
