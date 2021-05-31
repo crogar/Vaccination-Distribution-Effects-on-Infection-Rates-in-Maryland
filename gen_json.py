@@ -51,7 +51,6 @@ def get_cases_heatmap(date):
     df["DATE"]= df["DATE"].astype(str)
     ndf = df.groupby(['DATE','County'])
     grouped = ndf['Confirmed_cases'].sum()
-    date ='2020-03-15'
     cases = []
     mydict= {}
     counts =[]

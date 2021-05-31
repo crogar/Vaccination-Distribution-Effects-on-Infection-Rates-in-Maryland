@@ -70,9 +70,20 @@
     console.log(data)
     var coordinates = data.map(county => county.coordinates)
     var cases = data.map(county => county.counts)
-    console.log(cases)
-    
+
+    var heatArray = [];
+    for(var i=0;i<cases[0].length;i++){
+        // console.log(coordinates[0][i][0])
+        for(var j=0; j<cases[0][i];j++){
+            heatArray.push([coordinates[0][i][0], coordinates[0][i][1],cases[0][i]]);
+        }
+    }
+    // console.log(heatArray)
+    var heat = L.heatLayer(heatArray, {
+        radius: 25,
+        blur: 45
+      }).addTo(myMapHeat);
   });
   }
 
-  create_heatmap("2020-03-15")
+  create_heatmap("2021-03-22")
