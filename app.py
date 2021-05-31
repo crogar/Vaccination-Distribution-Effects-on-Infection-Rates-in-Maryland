@@ -71,11 +71,18 @@ def vacinnation_dates():
     parsed = json.loads(gen_json.gen_vaccination_dates())
     return jsonify(parsed)
 
-#gen_vacc use code right above as guide.
+# Returns a Json File containing vaccination data by date
 @app.route("/gen_vaccines/<date>")
 def gen_vacc(date):
     """Index - Landing Page"""
     parsed = json.loads(gen_vacc_json.get_vaccines(date))
+    return jsonify(parsed)
+
+# Returns a Json File containing vaccination data by date
+@app.route("/gen_vaccines_gender/<date>")
+def gen_gender(date):
+    """Index - Landing Page"""
+    parsed = json.loads(gen_json.get_vaccines_gender(date))
     return jsonify(parsed)
 
 if __name__ == "__main__":

@@ -52,6 +52,7 @@ def get_vaccines_gender(date):
     gender_df = gender_df.groupby(['Gender'])['SecondDoseCumulative'].sum()
     gender_data = []
     gender_dict = gender_df.to_dict()
+    gender_dict['date'] = date
     gender_data.append(gender_dict)
     return json.dumps(gender_data)
 
