@@ -17,15 +17,13 @@ $("document").ready(function(){
   });
 }); // Populating DropDown Menu with counties
 
-$.getJSON('http://127.0.0.1:5000/get_cases_dates', function(data) { // Populating dates for cases and vaccinations
+$.getJSON('http://127.0.0.1:5000/get_cases_dates', function(data) { // Populating dates for cases
   var reversed 
   reversed = data.sort()
   reversed = data.reverse();
+  var $dropdown = $("#dates-cases-select");
   $.each(reversed, function() {
-    var $dropdown = $("#dates-cases-select");
-    var $dropdown_vaccines = $("#dates-vaccines-select");
     $dropdown.append($("<option />").val(this).text(this));
-    $dropdown_vaccines.append($("<option />").val(this).text(this));
   });
   var initial_date = reversed[0]
   create_choropleth(initial_date); // Creating the choropleth using the latest date in the date set    
@@ -35,9 +33,11 @@ $.getJSON('http://127.0.0.1:5000/get_vaccination_dates', function(data) { // Pop
   var reversed 
   reversed = data.sort()
   reversed = data.reverse();
+  var $dropdown = $("#dates-vaccines-select");
+  var $dropdown_vaccines = $("#dates-vaccines-select-2");
   $.each(reversed, function() {
-    var $dropdown = $("#dates-vaccines-select");
     $dropdown.append($("<option />").val(this).text(this));
+    $dropdown_vaccines.append($("<option />").val(this).text(this));
   });    
   var initial_date = reversed[0]
   gen_date(initial_date);
