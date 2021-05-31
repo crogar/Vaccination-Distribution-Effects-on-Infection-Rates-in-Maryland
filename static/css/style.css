@@ -152,7 +152,7 @@ main{
     display: inline;
 }
 #dates-cases-select{
-    float:right;
+    float:auto;
 }
 
 .dashboard{

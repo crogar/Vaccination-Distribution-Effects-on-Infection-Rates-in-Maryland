@@ -17,13 +17,15 @@ $("document").ready(function(){
   });
 }); // Populating DropDown Menu with counties
 
-$.getJSON('http://127.0.0.1:5000/get_cases_dates', function(data) { // Populating dates for cases   
+$.getJSON('http://127.0.0.1:5000/get_cases_dates', function(data) { // Populating dates for cases and vaccinations
   var reversed 
   reversed = data.sort()
   reversed = data.reverse();
   $.each(reversed, function() {
     var $dropdown = $("#dates-cases-select");
+    var $dropdown_vaccines = $("#dates-vaccines-select");
     $dropdown.append($("<option />").val(this).text(this));
+    $dropdown_vaccines.append($("<option />").val(this).text(this));
   });
   var initial_date = reversed[0]
   create_choropleth(initial_date); // Creating the choropleth using the latest date in the date set    
