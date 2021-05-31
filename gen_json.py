@@ -44,6 +44,11 @@ def get_cases(date):
             geo_data['features'][county]['properties']['confirmed_cases'] = counties[county]['Confirmed_cases']
     return json.dumps(geo_data)
 
+def get_cases_heatmap(date):
+    df =pd.read_sql_query('select * from cases', con=engine)
+    df["County"]= df["County"].astype(str)
+    df["DATE"]= df["DATE"].astype(str)
+
 def gen_cases_dates():
     '''This function returns a Json like list containing the unique dates in the cases SQL data table'''
     df =pd.read_sql_query('select * from cases', con=engine)
