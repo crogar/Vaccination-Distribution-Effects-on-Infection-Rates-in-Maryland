@@ -45,9 +45,27 @@ def get_cases(date):
     return json.dumps(geo_data)
 
 def get_cases_heatmap(date):
+    counties = {"Allegany":[39.6255251,-78.6114999],"Anne_Arundel":[38.9530109,-76.5488232],"Baltimore":[39.4647665,-76.7336521],"Baltimore_City":[39.2903848,-76.6121893],"Calvert":[38.49495030000001,-76.5025742],"Caroline":[38.9105018,-75.8533954],"Carroll":[39.5423418,-77.0564464],"Cecil":[39.5739403,-75.94632399999999],"Charles":[38.5221781,-77.10249019999999],"Dorchester":[38.4152819,-76.17837390000001],"Frederick":[39.3844507,-77.4701972],"Garrett":[39.5681243,-79.29021329999999],"Harford":[39.5838964,-76.3637285],"Howard":[39.2873463,-76.964306],"Kent":[39.2713804,-76.1319953],"Montgomery":[39.1547426,-77.2405153],"Prince_Georges":[38.78492110000001,-76.8720961],"Queen_Annes":[39.0263572,-76.1319953],"Somerset":[38.0862333,-75.8533954],"St_Marys":[38.1060259,-76.3637285],"Talbot":[38.7803973,-76.1319953],"Washington":[39.641762,-77.719993],"Wicomico":[38.3941813,-75.667356],"Worcester":[38.1584227,-75.4344727]}
     df =pd.read_sql_query('select * from cases', con=engine)
     df["County"]= df["County"].astype(str)
     df["DATE"]= df["DATE"].astype(str)
+    ndf = df.groupby(['DATE','County'])
+    grouped = ndf['Confirmed_cases'].sum()
+    date ='2020-03-15'
+    cases = []
+    mydict= {}
+    counts =[]
+    coordinates = []
+    temp = grouped.loc[[date]]
+    mydict['date'] = date
+    for index,item in enumerate(temp.index):
+        coordinates.append(counties[item[1]])
+        counts.append(temp[index])
+    mydict['coordinates'] = coordinates
+    mydict['counts'] = counts
+    cases.append(mydict)
+    return json.dumps(cases)
+    
 
 def gen_cases_dates():
     '''This function returns a Json like list containing the unique dates in the cases SQL data table'''

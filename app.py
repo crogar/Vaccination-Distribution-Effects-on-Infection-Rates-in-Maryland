@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+import numpy as np
 import subprocess
 import sys
 import pendulum
@@ -51,6 +52,11 @@ def get_datasets():
 def gen_geojson(date):
     """Index - Landing Page"""
     parsed = json.loads(gen_json.get_cases(date))
+    return jsonify(parsed)
+
+@app.route("/gen_cases_heat/<date>")
+def gen_heat_cases(date):
+    parsed = json.loads(gen_json.get_cases_heatmap(date))
     return jsonify(parsed)
 
 @app.route("/get_cases_dates")
