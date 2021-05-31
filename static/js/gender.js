@@ -14,7 +14,13 @@ function plot_pie(date){
             hole: .4,
             type: 'pie'
           }];
-          
+          var dom_rect = document.getElementById('gauge').getBoundingClientRect()
+          // console.log(document.getElementById('gauge').getBoundingClientRect())
+          var update = {
+           width: dom_rect.width,  // or any new width
+           height: dom_rect.height // " "
+         };
+
           var layout = {
             title: 'Gender Vaccination Distribution',
             annotations: [
@@ -28,12 +34,22 @@ function plot_pie(date){
                 y: 0.5
               }
             ],
-            height: 400,
-            width: 400,
+            height: update.height,
+            width: update.width,
             showlegend: true,
             grid: {rows: 1, columns: 1}
           };
-          
           Plotly.newPlot('gender', data, layout);
     });
 }
+
+// Handling resizing of gender div
+$( window ).resize(function() {
+    var dom_rect = document.getElementById('gender').getBoundingClientRect()
+    var update = {
+      width: dom_rect.width,  // or any new width
+      height: dom_rect.height  // " "
+    };
+    
+    Plotly.relayout('gender', update);
+  });

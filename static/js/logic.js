@@ -41,7 +41,7 @@ $.getJSON('http://127.0.0.1:5000/get_vaccination_dates', function(data) { // Pop
   });    
   var initial_date = reversed[0]
   gen_date(initial_date);
-  plot_pie(initial_date)
+  plot_pie(initial_date);
   create_choropleth_vaccines(initial_date); // Creating the choropleth using the latest date in the date set    
 });
 
@@ -115,17 +115,17 @@ function gauge_plot(percent, date){
       }
     }
   }
-];
-var dom_rect = document.getElementById('gauge').getBoundingClientRect()
-// console.log(document.getElementById('gauge').getBoundingClientRect())
-var update = {
-  width: dom_rect.width,  // or any new width
-  height: dom_rect.height // " "
-};
+  ];
+  var dom_rect = document.getElementById('gauge').getBoundingClientRect()
+  // console.log(document.getElementById('gauge').getBoundingClientRect())
+  var update = {
+    width: dom_rect.width,  // or any new width
+    height: dom_rect.height // " "
+  };
 
-var layout = {width: update.width, height: update.height,margin: { t: 0, b: 0 }, font: {size: 12}};
-var config = {responsive: true}
-Plotly.newPlot('gauge', data, layout);  
+  var layout = {width: update.width, height: update.height,margin: { t: 0, b: 0 }, font: {size: 12}};
+  var config = {responsive: true}
+  Plotly.newPlot('gauge', data, layout);  
 }
 
 $( window ).resize(function() {

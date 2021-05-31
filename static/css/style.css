@@ -166,7 +166,7 @@ main{
     border-radius: 4px;
     color: var(--bg-secondary);
 }
-#gauge, .map-container{
+#gauge, .map-container, #gender{
     max-height: 400px;
 }
 
