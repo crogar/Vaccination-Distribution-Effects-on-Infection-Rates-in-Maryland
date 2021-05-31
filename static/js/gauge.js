@@ -1,7 +1,6 @@
 county_vacc = [{"county": "Allegany", "population": 75300, "fully_vaccinated": 24246}];
 
 dropDown(county_vacc);
-gaugePlot(county_vacc[0])
 
 // Selects the county that was chosen in the dropdown menu
 let selectedCounty = d3.select("#selDataset");

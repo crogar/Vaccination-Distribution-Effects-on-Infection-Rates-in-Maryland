@@ -52,7 +52,7 @@ def get_vaccines_gender(date):
     gender_df = gender_df.groupby(['Gender'])['SecondDoseCumulative'].sum()
     gender_data = []
     gender_dict = gender_df.to_dict()
-    gender_dict['date'] = date
+    # gender_dict['date'] = date
     gender_data.append(gender_dict)
     return json.dumps(gender_data)
 
@@ -101,4 +101,3 @@ def gen_vaccination_dates():
     df['DATE'] = df['DATE'].astype(str)
     dates_unique = [str(date).replace("T00:00:00.000000000","") for date in df['DATE'].unique()]
     return json.dumps(dates_unique)
-

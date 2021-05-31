@@ -41,6 +41,7 @@ $.getJSON('http://127.0.0.1:5000/get_vaccination_dates', function(data) { // Pop
   });    
   var initial_date = reversed[0]
   gen_date(initial_date);
+  plot_pie(initial_date)
   create_choropleth_vaccines(initial_date); // Creating the choropleth using the latest date in the date set    
 });
 
@@ -61,6 +62,14 @@ $(document).ready(function() {
   $('#dates-vaccines-select').change(function(){
       console.log($(this).find("option:selected").attr('value'))  
       gen_date($(this).find("option:selected").attr('value')) ;
+  });
+});
+
+// Event Handler to check when a new date is selected
+$(document).ready(function() {  
+  $('#dates-vaccines-select-2').change(function(){
+      console.log($(this).find("option:selected").attr('value'))  
+      plot_pie($(this).find("option:selected").attr('value')) ;
   });
 });
 
