@@ -15,7 +15,7 @@ The purpose of this project is to communicate the effects of vaccinations on inf
 
 Data Sources, Visualizations, and Tools:
 
-The data sources for this project will use COVID data sets from The Maryland Department of Health. The visualizations for this project will include, at a minimum, 1.) graphic depictions of vaccination rates and infection rates, 2.) an interactive map of counties with detailed pop-ups, and 3.) a heat map of the state depicting vaccination and infection densities. The data will be stored in a SQL database and visualizations will be created using the React library for JavaScript. 
+The data sources for this project will use COVID data sets from The Maryland Department of Health. The visualizations for this project will include, at a minimum, 1.) graphic depictions of vaccination rates and infection rates, 2.) an interactive map of counties with detailed pop-ups, and 3.) a heat map of the state depicting vaccination and infection densities. The data will be stored in a SQL database and visualizations will be created using the Jquery library for JavaScript. 
 
 MD DoH Data Hub: https://coronavirus.maryland.gov/search <br>
 MD Vaccinations by County: https://coronavirus.maryland.gov/datasets/04d60ba645b34c3b92eae5d6fa70b69b_0?geometry=-80.784%2C38.076%2C-73.753%2C39.574 <br>

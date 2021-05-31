@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from config import password
 import json
 import requests
+import datetime as dt
 
 connection_string = f"udxenurz:{password}@batyr.db.elephantsql.com/udxenurz"
 engine = create_engine(f'postgres://{connection_string}')
@@ -16,7 +17,7 @@ def get_cases(date):
     # date = '2021-05-22'
     # reading SQL 
     df =pd.read_sql_query('select * from cases', con=engine)
-    # Converting Date column from String to Dates
+    # Converting Date column from Date to String
     df['DATE'] = df['DATE'].astype(str)
     last_date = df[df['DATE'] == date]
 
@@ -40,3 +41,15 @@ def get_cases(date):
         geo_data['features'][county]['properties']['date'] = counties[county]['date']
         geo_data['features'][county]['properties']['confirmed_cases'] = counties[county]['Confirmed_cases']
     return json.dumps(geo_data)
+
+# Gender API Call
+
+def get_gender(date):
+    # date = '2021-05-22'
+    # reading SQL 
+    df =pd.read_sql_query('select * from gender', con=engine)
+    # Converting Date column from Date to String
+    df['DATE'] = df['DATE'].astype(str)
+    last_date = df[df['DATE'] == date]
+
+    
