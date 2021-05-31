@@ -166,10 +166,24 @@ main{
     border-radius: 4px;
     color: var(--bg-secondary);
 }
+#gauge, .map-container{
+    max-height: 400px;
+}
 
+/* even columns */
+.content-even{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content-even > * {
+    flex: 1 1 30%;
+}
+
+/* side bar */
 .sidebar,.map-container{
     overflow: auto;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .content-sidebars{
@@ -179,16 +193,16 @@ main{
 }
 
 .content-sidebars > *:nth-child(1){
-    flex: 1 1 40%;
+    flex: 1 1 30%;
     min-width: 35ch;
 }
 .content-sidebars > *:nth-child(2){
-    flex: 1 1 40%;
+    flex: 1 1 30%;
     min-width: 35ch;
 }
 .content-sidebars > *:nth-child(3){
-    flex: 1 1 10%;
-    min-width: 20ch;
+    flex: 0 1 30%;
+    min-width: 55ch;
     /* max-width: 75ch; */
 }
 

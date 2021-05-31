@@ -73,11 +73,11 @@
           <h1>Covid-19 Dashboard</h1>
         </div>
         <div class="content-sidebars">
-          <div class="col state-cases">
+          <div class="col">
             <select id="dates-vaccines-select" ></select> <hr>
             <div id="gauge"></div>
           </div>
-          <div class="col">
+          <div class="col state-cases">
             <div class="box-header">
               <h2 class="box-title">Number of Confirmed Cases</h2>
               <select id="dates-cases-select" ></select> 
@@ -87,9 +87,9 @@
               <div id="map-cases"></div>
             </div>        
           </div>
-          <div class="col sidebar">
+          <div class="col">
             <hr>
-            <div class="well" style="width: 180px; border-radius: 3px;margin-bottom: 10px;padding-left: 3%;padding-bottom: 10px; align-items: center; justify-items: center;">
+            <div class="well">
               <h4>Select County</h4>
               <select id="counties-selector" style="margin:auto;" ></select>
             </div>
@@ -99,7 +99,14 @@
     </div>
     <!-- end 1st container -->
     <div class="container">
-      
+          <div class="col sidebar">
+            <hr>
+            <div class="well" style="width: 180px; border-radius: 3px;margin-bottom: 10px;padding-left: 3%;padding-bottom: 10px; align-items: center; justify-items: center;">
+              <h4>Select County</h4>
+              <select id="counties-selector" style="margin:auto;" ></select>
+            </div>
+          </div>
+      </div>
     </div>
   </main>
   <!-- bootstrap -->

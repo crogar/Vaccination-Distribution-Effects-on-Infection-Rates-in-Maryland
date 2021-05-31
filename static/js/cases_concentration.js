@@ -3,7 +3,7 @@ window.addEventListener('load', (event) => {
   // console.log(document.getElementById('gauge').getBoundingClientRect())
   var update = {
     width: dom_rect.width,  // or any new width
-    height: 450 // " "
+    height: 400 // " "
   };
   var searchcolumn = d3.select("#map-cases")
                     .style("width", update.width + 'px')
