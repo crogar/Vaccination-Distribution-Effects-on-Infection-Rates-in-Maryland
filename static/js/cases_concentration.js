@@ -104,8 +104,9 @@ fetch(geoData)
     var colors = geojson.options.colors;
     var labels = [];
 
+    var date = $("#dates-cases-select").find("option:selected").attr('value')
     // Add min & max
-    var legendInfo = "<h1>Confirmed Cases</h1><hr><h1> DATE</h1>" +
+    var legendInfo = "<h1>Confirmed Cases</h1><hr><h1>" + date +"</h1>" +
       "<div class=\"labels\">" +
         "<div class=\"min\">" + limits[0] + "</div>" +
         "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
@@ -126,8 +127,3 @@ fetch(geoData)
 
 });
 }
-
-$( window ).resize(function() {
-  // $( "#log" ).append( "<div>Handler for .resize() called.</div>" );
-  // console.log(this.innerHeight, this.innerWidth)
-});
