@@ -1,6 +1,5 @@
 window.addEventListener('load', (event) => {
     var dom_rect = document.getElementById('gauge').getBoundingClientRect()
-    // console.log(document.getElementById('gauge').getBoundingClientRect())
     var update = {
       width: dom_rect.width,  // or any new width
       height: 400 // " "
@@ -91,7 +90,7 @@ window.addEventListener('load', (event) => {
   
       // Binding a pop-up to each layer
       onEachFeature: function(feature, layer) {
-        layer.bindPopup("County: " + feature.properties.county + "<br>Fully Vaccinated:<br>" +
+        layer.bindPopup("<b>County:</b> " + feature.properties.county + "<br><b>Fully Vaccinated:</b><br>" +
           feature.properties.confirmed_cases);
       }
     }).addTo(map);
