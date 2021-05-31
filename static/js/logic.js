@@ -111,7 +111,7 @@ var update = {
   height: dom_rect.height // " "
 };
 
-var layout = {width: update.width, height: update.height,margin: { t: 0, b: 0 }, font: {size: 14}};
+var layout = {width: update.width, height: update.height,margin: { t: 0, b: 0 }, font: {size: 12}};
 var config = {responsive: true}
 Plotly.newPlot('gauge', data, layout);  
 }
