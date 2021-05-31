@@ -1,23 +1,23 @@
-window.addEventListener('load', (event) => {
-    var dom_rect = document.getElementById('gauge').getBoundingClientRect()
-    // console.log(document.getElementById('gauge').getBoundingClientRect())
-    var update = {
-      width: dom_rect.width,  // or any new width
-      height: 450 // " "
-    };
-    var searchcolumn = d3.select("#map-cases")
-                      .style("width", update.width + 'px')
-                      .style("height", update.height + 'px');
-  });
-  var myMap = null;
+// window.addEventListener('load', (event) => {
+//     var dom_rect = document.getElementById('gauge').getBoundingClientRect()
+//     // console.log(document.getElementById('gauge').getBoundingClientRect())
+//     var update = {
+//       width: dom_rect.width,  // or any new width
+//       height: 450 // " "
+//     };
+//     var searchcolumn = d3.select("#map-cases")
+//                       .style("width", update.width + 'px')
+//                       .style("height", update.height + 'px');
+//   });
+  var myMapHeat = null;
   
-  function create_choropleth(date){
+  function create_heatmap(date){
   
   // Load in geojson data
   // var geoData = "../static/js/maryland_geojson.geojson";
-  var geoData = "http://127.0.0.1:5000/gen_cases/" + date;
-  if(myMap != undefined || myMap != null){
-    myMap.remove();
+  var geoData = "http://127.0.0.1:5000/gen_cases_heat/" + date;
+  if(myMapHeat != undefined || myMapHeat != null){
+    myMapHeat.remove();
   }
   // Define variables for our tile layers
   var light = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
@@ -41,14 +41,14 @@ window.addEventListener('load', (event) => {
     };
     
   // Creating map object
-   myMap = L.map("map-cases", {
+   myMapHeat = L.map("map", {
       center: [38.5221781, -77.10249019999999],
       zoom: 7,
       layers: [dark],
     });
-    myMap.invalidateSize();
-    $('#map-cases').on('shown.bs.modal', function() {
-      myMap.resize();
+    myMapHeat.invalidateSize();
+    $('#map').on('shown.bs.modal', function() {
+      myMapHeat.resize();
       console.log("map resized")
     });
     // Adding tile layer
@@ -59,21 +59,20 @@ window.addEventListener('load', (event) => {
       zoomOffset: -1,
       id: "mapbox/streets-v11",
       accessToken: API_KEY
-    }).addTo(myMap);
-    L.control.layers(baseMaps).addTo(myMap);
+    }).addTo(myMapHeat);
+    L.control.layers(baseMaps).addTo(myMapHeat);
   
     var geojson;
-  // Grab data with d3
+  // Grab data with fetch
   fetch(geoData)
       .then((r) => r.json())
       .then((data) => {
     console.log(data)
-    // Create a new choropleth layer
+    var coordinates = data.map(county => county.coordinates)
+    var cases = data.map(county => county.counts)
+    console.log(cases)
     
   });
   }
-  
-  $( window ).resize(function() {
-    // $( "#log" ).append( "<div>Handler for .resize() called.</div>" );
-    // console.log(this.innerHeight, this.innerWidth)
-  });
+
+  create_heatmap("2020-03-15")
