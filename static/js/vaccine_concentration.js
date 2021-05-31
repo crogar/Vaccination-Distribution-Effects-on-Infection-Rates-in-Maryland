@@ -75,7 +75,7 @@ window.addEventListener('load', (event) => {
       valueProperty: "confirmed_cases",
   
       // Set color scale
-      scale: ["#ffffb2", "#b10026"],
+      scale: ["#ffffb2", "#0000FF"],
   
       // Number of breaks in step range
       steps: 10,
@@ -91,7 +91,7 @@ window.addEventListener('load', (event) => {
   
       // Binding a pop-up to each layer
       onEachFeature: function(feature, layer) {
-        layer.bindPopup("County: " + feature.properties.county + "<br>Number of Confirmed Cases:<br>" +
+        layer.bindPopup("County: " + feature.properties.county + "<br>Fully Vaccinated:<br>" +
           feature.properties.confirmed_cases);
       }
     }).addTo(map);
@@ -106,7 +106,7 @@ window.addEventListener('load', (event) => {
   
       var date = $("#dates-vaccines-select-2").find("option:selected").attr('value')
       // Add min & max
-      var legendInfo = "<h1>Confirmed Cases</h1><hr><h1>" + date +"</h1>" +
+      var legendInfo = "<h1>Fully Vaccinated</h1><hr><h1>" + date +"</h1>" +
         "<div class=\"labels\">" +
           "<div class=\"min\">" + limits[0] + "</div>" +
           "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +

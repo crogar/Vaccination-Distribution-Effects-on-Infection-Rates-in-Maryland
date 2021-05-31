@@ -34,9 +34,11 @@ $.getJSON('http://127.0.0.1:5000/get_vaccination_dates', function(data) { // Pop
   reversed = data.sort()
   reversed = data.reverse();
   var $dropdown = $("#dates-vaccines-select");
+  var $dropdown1 = $("#dates-vaccines-select-1");
   var $dropdown_vaccines = $("#dates-vaccines-select-2");
   $.each(reversed, function() {
     $dropdown.append($("<option />").val(this).text(this));
+    $dropdown1.append($("<option />").val(this).text(this));
     $dropdown_vaccines.append($("<option />").val(this).text(this));
   });    
   var initial_date = reversed[0]
