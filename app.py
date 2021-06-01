@@ -54,6 +54,11 @@ def gen_geojson(date):
     parsed = json.loads(gen_json.get_cases(date))
     return jsonify(parsed)
 
+@app.route("/gen_vaccinations/<date>")
+def gen_geojson_vacc(date):
+    parsed = json.loads(gen_json.get_vaccinations(date))
+    return jsonify(parsed)
+
 @app.route("/gen_cases_heat/<date>")
 def gen_heat_cases(date):
     parsed = json.loads(gen_json.get_cases_heatmap(date))
