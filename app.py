@@ -2,6 +2,8 @@ import json
 import pandas as pd
 import numpy as np
 import urllib.request
+
+from sqlalchemy.sql.expression import table
 import populate_db
 from collections import OrderedDict
 import gen_json, gen_vacc_json
@@ -31,9 +33,10 @@ def index():
     return render_template("index.html")
 
 @app.route("/")
-def index():
+def gen_tables():
+    tables =[]
     """DataSets - Page"""
-    return render_template("index.html")
+    return render_template("tables.html", datasets=tables)
 
 @app.route("/update_data")
 def get_datasets():
