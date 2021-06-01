@@ -93,7 +93,14 @@ def gen_gender(date):
 # Returns a Json File containing vaccination data by date
 @app.route("/gen_linear_cases")
 def gen_linear():
-    parsed = json.loads(gen_json.get_vaccines_gender(date))
+    csv_path = ".Resources/MDCOVID19_TotalCasesStatewide.csv"
+    df = pd.read_csv(csv_path)
+    df = df[['DATE','Count_']]
+    df.rename(columns={'DATE':'date',"Count_":'count'}, inplace=True)
+    df['date'] = pd.to_datetime(df['date'], infer_datetime_format=True)
+    df['date'] = df['date'].astype(np.int64) // 10**9
+    result = df.to_json(orient="records")
+    parsed = json.loads(result)
     return jsonify(parsed)
 
 if __name__ == "__main__":
