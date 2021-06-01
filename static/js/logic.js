@@ -62,7 +62,6 @@ function gen_date(date){
 // Event Handler to check when a new date is selected
 $(document).ready(function() {  
   $('#dates-vaccines-select').change(function(){
-      console.log($(this).find("option:selected").attr('value'))  
       gen_date($(this).find("option:selected").attr('value')) ;
   });
 });
@@ -70,7 +69,6 @@ $(document).ready(function() {
 // Event Handler to check when a new date is selected
 $(document).ready(function() {  
   $('#dates-vaccines-select-2').change(function(){
-      console.log($(this).find("option:selected").attr('value'))  
       plot_pie($(this).find("option:selected").attr('value')) ;
   });
 });
@@ -78,7 +76,6 @@ $(document).ready(function() {
 // Event Handler to check when a new date is selected -- it updates vaccination map
 $(document).ready(function() {  
   $('#dates-vaccines-select-1').change(function(){
-      console.log($(this).find("option:selected").attr('value'))  
       create_choropleth_vaccines($(this).find("option:selected").attr('value')) ;
   });
 });
@@ -86,7 +83,6 @@ $(document).ready(function() {
 // Event Handler to check when a new date is selected -- Choropleth
 $(document).ready(function() {  
   $('#dates-cases-select').change(function(){
-      console.log($(this).find("option:selected").attr('value'))  
       create_choropleth($(this).find("option:selected").attr('value')) ;
   });
 });
@@ -127,7 +123,6 @@ function gauge_plot(percent, date){
   }
   ];
   var dom_rect = document.getElementById('gauge').getBoundingClientRect()
-  // console.log(document.getElementById('gauge').getBoundingClientRect())
   var update = {
     width: dom_rect.width,  // or any new width
     height: dom_rect.height // " "
@@ -140,7 +135,6 @@ function gauge_plot(percent, date){
 
 $( window ).resize(function() {
   var dom_rect = document.getElementById('gauge').getBoundingClientRect()
-  // console.log(document.getElementById('gauge').getBoundingClientRect())
   var update = {
     width: dom_rect.width,  // or any new width
     height: dom_rect.height  // " "
