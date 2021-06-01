@@ -1,4 +1,4 @@
-import json
+import json, glob, os
 import pandas as pd
 import numpy as np
 import urllib.request
@@ -32,11 +32,17 @@ def index():
     """Index - Landing Page"""
     return render_template("index.html")
 
-@app.route("/")
-def gen_tables():
-    tables =[]
+@app.route("/datasets")
+def load_tables():
     """DataSets - Page"""
-    return render_template("tables.html", datasets=tables)
+    files = []
+    # glob.glob() return a list of file name with specified pathname
+    for file in glob.glob(r"./Resources" + "**/*.csv", recursive=True):
+    # print the path name of selected files
+        files.append(os.path.join(file).replace(".\\",""))
+        print(os.path.join(file).replace(".\\",""))
+    
+    return render_template("tables.html", datasets=files)
 
 @app.route("/update_data")
 def get_datasets():

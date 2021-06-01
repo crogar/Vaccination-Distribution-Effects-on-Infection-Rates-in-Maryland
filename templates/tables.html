@@ -67,7 +67,7 @@
       </div>
       <select name="symbol" id="select_dataset">
         {%for dataset in datasets%}
-            <option>{{coin}}</option>
+            <option>{{dataset}}</option>
         {%endfor%}
     </select>
       <hr>
@@ -84,6 +84,8 @@
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <!-- DataTable Jquery -->
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+  <!-- tables logic -->
+  <script type="text/javascript" src="../static/js/load_tables.js"></script>
 </body>
 
 </html>
