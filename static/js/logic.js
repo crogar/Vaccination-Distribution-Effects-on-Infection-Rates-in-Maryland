@@ -44,6 +44,7 @@ $.getJSON('http://127.0.0.1:5000/get_vaccination_dates', function(data) { // Pop
   var initial_date = reversed[0]
   gen_date(initial_date);
   plot_pie(initial_date);
+  create_choropleth_vaccines(initial_date); // Creating the choropleth using the latest date in the date set 
   create_choropleth_vaccines(initial_date); // Creating the choropleth using the latest date in the date set    
 });
 

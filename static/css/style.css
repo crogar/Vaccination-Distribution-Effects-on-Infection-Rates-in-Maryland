@@ -161,6 +161,9 @@ main{
 .comparison{
     margin-top: 20px;
 }
+.second{
+    padding-bottom: 20px;
+}
 
 .filler{
     height: 15vh;
@@ -186,8 +189,17 @@ main{
 }
 
 .content-even .col{
-    height: 200px;
+    /* height: 400px; */
     max-height: 400px;
+}
+
+.intern{
+    background-color: #ececec;
+    margin-bottom: 10px;
+}
+.intern .col{
+    margin: 8px 5px 5px 5px;
+    height: 300px;
 }
 
 .content-even > *:nth-child(1){
