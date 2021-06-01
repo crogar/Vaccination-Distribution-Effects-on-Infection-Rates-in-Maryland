@@ -122,7 +122,7 @@ def gen_linear():
 def gen_table(name):
     csv_path = "./Resources/" + name.replace("Resources\\","")
     df = pd.read_csv(csv_path)
-    table = df.to_html().replace('table border="1" class="dataframe"','table id="table_id" class="display')
+    table = df.to_html(index=False).replace('table border="1" class="dataframe"','table id="table_id" class="display"')
     table = table.replace("\n","")
     return jsonify(table)
 

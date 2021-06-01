@@ -5,7 +5,7 @@ function addCode() {
         console.log(data)
         document.getElementById("table-container").innerHTML += data;
         $(document).ready( function () {
-            $('#table-container').DataTable();
+            $('#table_id').DataTable();
         } );
     });
 }

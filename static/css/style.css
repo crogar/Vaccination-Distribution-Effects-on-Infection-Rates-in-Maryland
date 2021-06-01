@@ -239,6 +239,10 @@ main{
     max-width: 100%;
 }
 
+/* tables */
+#table-container{
+    overflow: auto;
+}
 /*       */
 
  /* small screens */
