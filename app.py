@@ -1,9 +1,6 @@
 import json
 import pandas as pd
 import numpy as np
-import subprocess
-import sys
-import pendulum
 import urllib.request
 import populate_db
 from collections import OrderedDict
@@ -90,6 +87,12 @@ def gen_vacc(date):
 @app.route("/gen_vaccines_gender/<date>")
 def gen_gender(date):
     """Index - Landing Page"""
+    parsed = json.loads(gen_json.get_vaccines_gender(date))
+    return jsonify(parsed)
+
+# Returns a Json File containing vaccination data by date
+@app.route("/gen_linear_cases")
+def gen_linear():
     parsed = json.loads(gen_json.get_vaccines_gender(date))
     return jsonify(parsed)
 
