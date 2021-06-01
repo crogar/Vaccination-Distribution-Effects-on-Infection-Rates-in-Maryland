@@ -18,11 +18,11 @@ var areaSeries = chart.addAreaSeries({
       title: "Cases",
   });
 
-  fetch('http://127.0.0.1:5000/pumps_history/' + coin)
-	.then((r) => r.json())
-	.then((response) => {
-		console.log(response);
-		areaSeries.setData(response);
+fetch('http://127.0.0.1:5000/gen_linear_cases')
+.then((r) => r.json())
+.then((response) => {
+    console.log(response);
+    areaSeries.setData(response);
 });
 
 chart.timeScale().fitContent();
