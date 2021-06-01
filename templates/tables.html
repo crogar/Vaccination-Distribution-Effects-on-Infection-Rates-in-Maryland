@@ -65,6 +65,12 @@
       <div class="box-header">
           <h1 class="table_name">Table</h1>
       </div>
+      <select name="symbol" id="select_dataset">
+        {%for dataset in datasets%}
+            <option>{{coin}}</option>
+        {%endfor%}
+    </select>
+      <hr>
       <div class="col"></div>
     </div>
     <div class="filler"></div>

@@ -30,6 +30,11 @@ def index():
     """Index - Landing Page"""
     return render_template("index.html")
 
+@app.route("/")
+def index():
+    """DataSets - Page"""
+    return render_template("index.html")
+
 @app.route("/update_data")
 def get_datasets():
     """gets the most updated data from https://ourworldindata.org/us-states-vaccinations"""
