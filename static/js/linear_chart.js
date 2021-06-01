@@ -1,6 +1,6 @@
 // Creating our Chart instance
 var chart = LightweightCharts.createChart(document.getElementById("linear-cases"), {
-	width: 600,
+  width: 600,
   height: 300,
 	rightPriceScale: {
 		scaleMargins: {
@@ -48,4 +48,15 @@ chart.applyOptions({
     localization: {
         locale: 'en-US',
     },
+});
+
+// Handling resizing of gender div
+$( window ).resize(function() {
+    var dom_rect = document.getElementById('linear-cases').getBoundingClientRect()
+    var update = {
+      width: dom_rect.width,  // or any new width
+      height: dom_rect.height  // " "
+    };
+    
+    chart.applyOptions({ width: update.width, height: update.height })
 });
