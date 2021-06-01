@@ -75,6 +75,14 @@ $(document).ready(function() {
   });
 });
 
+// Event Handler to check when a new date is selected -- it updates vaccination map
+$(document).ready(function() {  
+  $('#dates-vaccines-select-1').change(function(){
+      console.log($(this).find("option:selected").attr('value'))  
+      create_choropleth_vaccines($(this).find("option:selected").attr('value')) ;
+  });
+});
+
 // Event Handler to check when a new date is selected -- Choropleth
 $(document).ready(function() {  
   $('#dates-cases-select').change(function(){
