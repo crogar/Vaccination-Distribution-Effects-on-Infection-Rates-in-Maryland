@@ -95,10 +95,10 @@ def gen_gender(date):
 def gen_linear():
     csv_path = "./Resources/MDCOVID19_TotalCasesStatewide.csv"
     df = pd.read_csv(csv_path)
-    df = df[['time','Count_']]
-    df.rename(columns={'DATE':'date',"Count_":'value'}, inplace=True)
-    df['time'] = pd.to_datetime(df['date'], infer_datetime_format=True)
-    df['time'] = df['date'].astype(np.int64) // 10**9
+    df = df[['DATE','Count_']]
+    df.rename(columns={'DATE':'time',"Count_":'value'}, inplace=True)
+    df['time'] = pd.to_datetime(df['time'], infer_datetime_format=True)
+    df['time'] = df['time'].astype(np.int64) // 10**9
     result = df.to_json(orient="records")
     parsed = json.loads(result)
     return jsonify(parsed)
