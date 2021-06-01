@@ -71,7 +71,7 @@ window.addEventListener('load', (event) => {
     geojson = L.choropleth(data, {
   
       // Define what  property in the features to use
-      valueProperty: "confirmed_cases",
+      valueProperty: "FullVaccinatedCumulative",
   
       // Set color scale
       scale: ["#ffffb2", "#0000FF"],
