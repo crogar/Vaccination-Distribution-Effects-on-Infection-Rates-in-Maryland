@@ -11,9 +11,9 @@ var chart = LightweightCharts.createChart(document.getElementById("linear-cases"
 });
 // Ading areaSeries
 var areaSeries = chart.addAreaSeries({
-    topColor: 'rgba(76, 175, 80, 0.56)',
+    topColor: 'rgba(255, 0, 220 , 0.56)',
     bottomColor: 'rgba(76, 175, 80, 0.04)',
-    lineColor: 'rgba(76, 175, 80, 1)',
+    lineColor: 'rgba(255, 0, 89, 1)',
     lineWidth: 2,
       title: "Cases",
   });
