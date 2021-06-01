@@ -158,6 +158,14 @@ main{
 .dashboard{
     margin:auto;
 }
+.comparison{
+    margin-top: 20px;
+}
+
+.filler{
+    height: 15vh;
+}
+
 
 .col{
     padding: 5px;
@@ -174,10 +182,22 @@ main{
 .content-even{
     display: flex;
     flex-wrap: wrap;
+    gap: 1em;
 }
 
-.content-even > * {
-    flex: 1 1 30%;
+.content-even .col{
+    height: 200px;
+    max-height: 400px;
+}
+
+.content-even > *:nth-child(1){
+    flex: 1 1 45%;
+    min-width: 50ch;
+}
+
+.content-even > *:nth-child(2){
+    flex: 1 1 45%;
+    min-width: 50ch;
 }
 
 /* side bar */
@@ -186,6 +206,7 @@ main{
     /* width: 100%; */
 }
 
+/* sideber  */
 .content-sidebars{
     display: flex;
     flex-wrap: wrap;
