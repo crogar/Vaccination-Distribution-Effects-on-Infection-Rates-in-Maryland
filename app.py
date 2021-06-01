@@ -117,5 +117,14 @@ def gen_linear():
     parsed = json.loads(result)
     return jsonify(parsed)
 
+# Generates a html table
+@app.route("/gen_table/<name>")
+def gen_table(name):
+    csv_path = "./Resources/" + name.replace("Resources\\","")
+    df = pd.read_csv(csv_path)
+    table = df.to_html().replace('table border="1" class="dataframe"','table id="table_id" class="display')
+    table = table.replace("\n","")
+    return jsonify(table)
+
 if __name__ == "__main__":
     app.run(debug=True  )
