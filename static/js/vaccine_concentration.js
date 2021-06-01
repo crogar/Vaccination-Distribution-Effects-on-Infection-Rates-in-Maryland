@@ -91,7 +91,7 @@ window.addEventListener('load', (event) => {
       // Binding a pop-up to each layer
       onEachFeature: function(feature, layer) {
         layer.bindPopup("<b>County:</b> " + feature.properties.county + "<br><b>Fully Vaccinated:</b><br>" +
-          feature.properties.confirmed_cases);
+          feature.properties.FullVaccinatedCumulative);
       }
     }).addTo(map);
   

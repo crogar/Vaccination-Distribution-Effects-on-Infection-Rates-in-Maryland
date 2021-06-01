@@ -97,7 +97,7 @@ function gauge_plot(percent, date){
   {
     domain: { x: [0, 2], y: [0, 2] },
     value: value,
-    title: { text: "<b>Percentage of fully vaccinated</b> <br> People In Maryland - " + date },
+    title: { text: "<b>Percentage of fully vaccinated</b> <br> Population In Maryland - " + date },
     type: "indicator",
     mode: "gauge+number",
     gauge: {
