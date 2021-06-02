@@ -1,5 +1,5 @@
 function plot_pie(date){
-    $.getJSON('http://127.0.0.1:5000/gen_vaccines_gender/' + date, function(gender_data) { // Populating dates for vaccinations   
+    $.getJSON('https://marylandcovid.herokuapp.com/gen_vaccines_gender/' + date, function(gender_data) { // Populating dates for vaccinations   
       var values_ = [], labels_ = []
     Object.entries(gender_data[0]).forEach(([key, value]) => {
         labels_.push(key)
