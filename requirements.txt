@@ -121,11 +121,9 @@ retrying==1.3.3
 rope==0.18.0
 ruamel-yaml==0.15.87
 scikit-image==0.17.2
-selenium==3.141.0
 Send2Trash==1.5.0
 service-identity==18.1.0
 simplegeneric==0.8.1
-singledispatch @ file:///tmp/build/80754af9/singledispatch_1602523705405/work
 sip==4.19.13
 snowballstemmer==2.0.0
 sortedcollections==1.2.1
