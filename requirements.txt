@@ -71,7 +71,6 @@ Flask-PyMongo==2.3.0
 fs==2.4.13
 fsspec @ file:///tmp/build/80754af9/fsspec_1602684995936/work
 future==0.18.2
-GDAL @ file:///C:/Users/jich-/Downloads/GDAL-3.2.2-cp38-cp38-win_amd64.whl
 geojson==2.5.0
 gevent @ file:///C:/ci/gevent_1601397627942/work
 glob2==0.7
