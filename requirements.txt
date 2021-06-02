@@ -245,7 +245,6 @@ spyder-kernels @ file:///C:/ci/spyder-kernels_1599051709837/work
 SQLAlchemy @ file:///C:/ci/sqlalchemy_1603818908746/work
 statsmodels==0.12.0
 sympy @ file:///C:/ci/sympy_1605101511098/work
-TA-Lib @ file:///C:/Users/jich-/Documents/GitHub/bitcoin_prediction/TA_Lib-0.4.19-cp38-cp38-win_amd64.whl
 tables==3.6.1
 tblib @ file:///tmp/build/80754af9/tblib_1597928476713/work
 terminado==0.9.1
@@ -278,11 +277,9 @@ win-unicode-console==0.5
 wincertstore==0.2
 wrapt==1.12.1
 xlrd==1.2.0
-XlsxWriter @ file:///tmp/build/80754af9/xlsxwriter_1602692860603/work
 xlwings==0.20.8
 xlwt==1.3.0
 xmltodict==0.12.0
-yapf @ file:///tmp/build/80754af9/yapf_1593528177422/work
 zict==2.0.0
 zipp @ file:///tmp/build/80754af9/zipp_1604001098328/work
 zope.event==4.5.0
