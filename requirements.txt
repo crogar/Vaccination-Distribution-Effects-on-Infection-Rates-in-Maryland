@@ -143,7 +143,6 @@ tifffile==2020.10.1
 toml==0.10.1
 tornado==6.0.4
 Twisted==21.2.0
-twisted-iocpsupport==1.0.1
 txaio==21.2.1
 tzlocal==2.1
 unicodecsv==0.14.1
