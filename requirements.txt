@@ -111,7 +111,6 @@ python-binance==0.7.10
 python-dateutil==2.8.1
 pytz==2020.1
 pytzdata==2020.1
-pywin32==227
 pywin32-ctypes==0.2.0
 pywinpty==0.5.7
 PyYAML==5.3.1
