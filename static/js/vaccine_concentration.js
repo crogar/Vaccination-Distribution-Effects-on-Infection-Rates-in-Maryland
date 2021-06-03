@@ -124,5 +124,7 @@ window.addEventListener('load', (event) => {
     // Adding legend to the map
     legend.addTo(map);
   
+  }).catch((error) => {
+    alert("Vaccinations Per County \n There's no available Data for the selected day. Please Select a different date from the dropdown menu")
   });
   }
