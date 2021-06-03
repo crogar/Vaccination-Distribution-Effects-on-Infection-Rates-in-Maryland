@@ -236,7 +236,6 @@ main{
 .content-sidebars > *:nth-child(3){
     flex: 1 1 30%;
     min-width: 35ch;
-    max-width: 100%;
 }
 
 /* tables */
@@ -267,6 +266,18 @@ main{
     }
     .navbar:hover{
         width: 100vw;
+    }
+    .content-sidebars > *:nth-child(1){
+        flex: 1 1 30%;
+        max-width: 35ch;
+    }
+    .content-sidebars > *:nth-child(2){
+        flex: 1 1 30%;
+        max-width: 35ch;
+    }
+    .content-sidebars > *:nth-child(3){
+        flex: 1 0 30%;
+        max-width: 35ch;
     }
   }
 
