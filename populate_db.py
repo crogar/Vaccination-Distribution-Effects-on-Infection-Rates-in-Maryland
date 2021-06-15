@@ -34,7 +34,7 @@ def populate_sql():
     # ### putting df into vaccinations table in pgadmin server
     # #### Connecting to DB
     connection_string = f"udxenurz:{password}@batyr.db.elephantsql.com/udxenurz"
-    engine = create_engine(f'postgres://{connection_string}')
+    engine = create_engine(f'postgresql://{connection_string}')
     print(engine.table_names())
 
     # dropping values that are in any of our tables and resetting the index.
