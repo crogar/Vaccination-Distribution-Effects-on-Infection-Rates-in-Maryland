@@ -20,7 +20,7 @@ from flask_cors import CORS
 # Flask Setup
 #################################################
 app = Flask(__name__)
-app.config["JSON_SORT_KEYS"] = False # Preventing Jsonify to reorder the dictionario elements by the keys
+app.config["JSON_SORT_KEYS"] = False # Preventing Jsonify to reorder the dictionary elements by the keys
 CORS(app)
 #################################################
 # Flask Routes
