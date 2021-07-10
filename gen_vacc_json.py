@@ -6,7 +6,7 @@ from config import password
 import json
 import requests
 
-connection_string = f"udxenurz:{password}@batyr.db.elephantsql.com/udxenurz"
+connection_string = f"jlhzojat:{password}@batyr.db.elephantsql.com/jlhzojat"
 engine = create_engine(f'postgresql://{connection_string}')
 
 #list of counties and their total population
