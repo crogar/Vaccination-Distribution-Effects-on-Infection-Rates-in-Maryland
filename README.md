@@ -1,6 +1,6 @@
 # Vaccination-Distribution-Effects-on-Infection-Rates-in-Maryland
 
-You can see the finilized app here -- > [Finalized App](https://www.google.com "Maryland Vaccination")
+You can see the finilized app here -- > [Finalized App](http://marylandcovid.herokuapp.com/ "Maryland Vaccination")
 Project 2 Proposal and Summary <br>
 Project 2 Name: Vaccination Distribution Effects on Infection Rates in Maryland<br>
 Project 2 Team: Juan Castaneda, Robin Evans, Clayton Grace
