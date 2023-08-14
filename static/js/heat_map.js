@@ -15,7 +15,7 @@
   
   // Load in geojson data
   // var geoData = "../static/js/maryland_geojson.geojson";
-  var geoData = "https://marylandcovid.herokuapp.com/gen_cases_heat/" + date;
+  var geoData = "/gen_cases_heat/" + date;
   if(myMapHeat != undefined || myMapHeat != null){
     myMapHeat.remove();
   }

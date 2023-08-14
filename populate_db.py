@@ -35,7 +35,7 @@ def populate_sql():
     # #### Connecting to DB
     connection_string = f"jlhzojat:{password}@batyr.db.elephantsql.com/jlhzojat"
     engine = create_engine(f'postgresql://{connection_string}')
-    print(engine.table_names())
+    # print(engine.table_names())
 
     # dropping values that are in any of our tables and resetting the index.
     with engine.connect() as con:

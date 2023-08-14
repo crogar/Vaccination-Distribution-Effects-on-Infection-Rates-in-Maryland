@@ -1,13 +1,14 @@
+from sqlalchemy import create_engine, text
 import pandas as pd
 pd.options.mode.chained_assignment = None  # default='warn'
 import numpy as np
-from sqlalchemy import create_engine
 from config import password
 import json
 import requests
 
 connection_string = f"jlhzojat:{password}@batyr.db.elephantsql.com/jlhzojat"
 engine = create_engine(f'postgresql://{connection_string}')
+conn = engine.connect()
 
 #list of counties and their total population
 county_pop = [
@@ -39,7 +40,9 @@ county_pop = [
 
 def get_vaccines(date):
     # reading SQL 
-    dfv =pd.read_sql_query('select * from vaccinations', con=engine)
+    query = text("SELECT * FROM cases")
+    dfv = pd.read_sql_query(query, conn)
+    # dfv =pd.read_sql_query('select * from vaccinations', con=engine)
     # Converting Date column from String to Dates
     dfv['DATE'] = dfv['DATE'].astype(str)
     dfv = dfv[dfv['County'] != 'Unknown']

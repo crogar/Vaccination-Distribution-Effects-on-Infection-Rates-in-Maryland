@@ -15,7 +15,7 @@ function create_choropleth(date){
 
 // Load in geojson data
 // var geoData = "../static/js/maryland_geojson.geojson";
-var geoData = "https://marylandcovid.herokuapp.com/gen_cases/" + date;
+var geoData = "/gen_cases/" + date;
 if(myMap != undefined || myMap != null){
   myMap.remove();
 }

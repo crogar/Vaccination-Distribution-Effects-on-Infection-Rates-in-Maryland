@@ -17,7 +17,7 @@ $("document").ready(function(){
   });
 }); // Populating DropDown Menu with counties
 
-$.getJSON('https://marylandcovid.herokuapp.com/get_cases_dates', function(data) { // Populating dates for cases
+$.getJSON('/get_cases_dates', function(data) { // Populating dates for cases
   var reversed 
   reversed = data.sort()
   reversed = data.reverse();
@@ -29,7 +29,7 @@ $.getJSON('https://marylandcovid.herokuapp.com/get_cases_dates', function(data) 
   create_choropleth(initial_date); // Creating the choropleth using the latest date in the date set    
 });
 
-$.getJSON('https://marylandcovid.herokuapp.com/get_vaccination_dates', function(data) { // Populating dates for vaccinations   
+$.getJSON('/get_vaccination_dates', function(data) { // Populating dates for vaccinations   
   var reversed 
   reversed = data.sort()
   reversed = data.reverse();
@@ -50,7 +50,7 @@ $.getJSON('https://marylandcovid.herokuapp.com/get_vaccination_dates', function(
 
 // Initial gauge plot
 function gen_date(date){
-  $.getJSON('https://marylandcovid.herokuapp.com/gen_vaccines/' + date, function(data) { // Populating dates for cases    
+  $.getJSON('/gen_vaccines/' + date, function(data) { // Populating dates for cases    
   // var population = this.map
   var population = data.map(couty => couty.population)
   var fully_vaccinated = data.map(couty => couty.FullVaccinatedCumulative)

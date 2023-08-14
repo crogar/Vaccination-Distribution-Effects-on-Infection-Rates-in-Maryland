@@ -4,7 +4,7 @@ function addCode() {
     var fileName = $("#select_dataset :selected").text() 
     fileName = fileName.replace('Resources\\', "");
     document.getElementById("table_name").innerHTML = "<h4>" +  fileName + "</h4>";
-    $.getJSON('https://marylandcovid.herokuapp.com/gen_table/maryland_covid19-cases.csv', function(data) { // Populating tables
+    $.getJSON('/gen_table/maryland_covid19-cases.csv', function(data) { // Populating tables
         document.getElementById("table-container").innerHTML += data;
         $(document).ready( function () {
             $('#table_id').DataTable();

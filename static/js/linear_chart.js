@@ -18,7 +18,7 @@ var areaSeries = chart.addAreaSeries({
       title: "Cases",
   });
 
-fetch('https://marylandcovid.herokuapp.com/gen_linear_cases')
+fetch('/gen_linear_cases')
 .then((r) => r.json())
 .then((response) => {
     console.log(response);

@@ -14,7 +14,7 @@ window.addEventListener('load', (event) => {
   
   // Load in geojson data
   // var geoData = "../static/js/maryland_geojson.geojson";
-  var geoData = "https://marylandcovid.herokuapp.com/gen_vaccinations/" + date;
+  var geoData = "/gen_vaccinations/" + date;
   if(map != undefined || map != null){
     map.remove();
   }
