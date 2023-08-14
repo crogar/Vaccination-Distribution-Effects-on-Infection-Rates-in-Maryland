@@ -60,7 +60,12 @@ def get_vaccinations(date):
 
     # Populating Counties with number of cases for that specific date
     for index,county in enumerate(counties):
-        cases = last_date[last_date['County'] == county['county']]['FullVaccinatedCumulative'].item()
+        filtered_county = last_date[last_date['County'] == county['county']]
+        if not filtered_county.empty:
+            cases = filtered_county['FullVaccinatedCumulative'].item()
+        else:
+            cases = 0  # or any other appropriate default value
+        # cases = last_date[last_date['County'] == county['county']]['FullVaccinatedCumulative'].item()
         counties[index]['date'] = date
         counties[index]['FullVaccinatedCumulative'] = cases
     # Appending cases and coordinates to Geojson data for Maryland Counties
